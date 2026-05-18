@@ -1,9 +1,263 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
+import eventImage from '../assets/111.png';
+import eventVideo from '../assets/Untitled.mp4';
 
+const events = [
+  {
+    date: "30 Maj",
+    time: "19:00 - 00:00",
+    info: `Sankt Hans Gade 2, 2200, kbh N
+Release party
+Join us for an evening celebrating friends, music and the newest EP release with drinks, live performances and community atmosphere`
+  },
+  {
+    date: "12 Juni",
+    time: "20:00 - 02:00",
+    info: `Studiestræde 44, København
+DJ night
+Live DJ sets and cocktails all night`
+  },
+  {
+    date: "25 Juli",
+    time: "18:00 - 23:00",
+    info: `Refshaleøen, København
+Summer gathering
+An outdoor evening with food, fashion, music and creative conversations bringing together community and culture by the waterfront`
+  }
+];
 ---
 
 <Layout>
-	<h2>Forside Event</h2>
+  <section class="event-page">
+
+    <section class="hero-section">
+      <div>
+        <h1>PUNTO EVENTS</h1>
+		<p class="intro-text">
+  Get inspired by <br> timeless tailoring.
+</p>
+
+        <video class="hero-video" autoplay muted loop playsinline controls>
+          <source src={eventVideo} type="video/mp4" />
+        </video>
+      </div>
+
+      <section class="discover-section">
+        <h2>DISCOVER</h2>
+        <div class="line"></div>
+
+        <p>
+          <span>PUNTO EVENTS</span>  is an extension of the brand’s universe — bringing together fashion, music, art, and community through carefully curated experiences. From intimate pop-ups and creative showcases to late-night gatherings and collaborative events, each occasion is built around atmosphere, connection, and cultural expression. Rooted in the same timeless and understated identity as PUNTO ARCHIVES, the events create spaces where people can discover new inspirations, meet like-minded individuals, and experience the brand beyond the clothing itself.
+        </p>
+      </section>
+    </section>
+
+    <section class="upcoming">
+      <h2>UPCOMING <br /> EVENTS</h2>
+
+      {events.map((event) => (
+        <article class="event-card">
+          <div class="line"></div>
+
+          <img src={eventImage.src} alt="Event image" />
+
+          <div class="event-meta">
+            <h3>{event.date}</h3>
+            <p class="time">{event.time}</p>
+          </div>
+
+          <p class="event-info">{event.info}</p>
+        </article>
+      ))}
+    </section>
+
+  </section>
 </Layout>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .event-page {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: 0.88px;
+    margin-bottom: 24px;
+  }
+  .intro-text {
+  display: none;
+}
+
+  .hero-video {
+    width: 100%;
+    max-width: 352px;
+    height: 233px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .discover-section {
+    margin-bottom: 80px;
+  }
+
+  .discover-section h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 24px;
+  }
+
+  .discover-section p {
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .discover-section span {
+    font-size: 14px;
+  }
+
+  .upcoming h2 {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: 0.88px;
+    margin-bottom: 48px;
+  }
+
+  .event-card {
+    margin-bottom: 56px;
+  }
+
+  .event-card img {
+    width: 269px;
+    max-width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .event-meta h3 {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .time {
+    font-size: 16px;
+    line-height: 25px;
+    color: rgba(0, 0, 0, 0.68);
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
+  .event-info {
+    font-size: 13px;
+    line-height: 22px;
+    white-space: pre-line;
+  }
+
+  @media (min-width: 1280px) {
+  .event-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 90px 64px 120px;
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: 715px 360px;
+    gap: 44px;
+    align-items: start;
+  }
+
+  h1 {
+    font-size: 64px;
+    margin-bottom: 12px;
+  }
+    .intro-text {
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+    max-width: 140px;
+    margin-bottom: 48px;
+  }
+
+  .hero-video {
+    width: 715px;
+    max-width: none;
+    height: 474px;
+    margin-bottom: 0;
+  }
+
+  .discover-section {
+    margin-top: 112px;
+    margin-bottom: 0;
+	margin-top: 60%;
+  }
+
+  .discover-section h2 {
+    font-size: 32px;
+  }
+
+  .upcoming {
+    margin-top: 90px;
+  }
+
+  .upcoming h2 {
+    font-size: 64px;
+    margin-bottom: 24px;
+  }
+
+  .upcoming h2 br {
+    display: none;
+  }
+
+  .event-card {
+    display: grid;
+    grid-template-columns: 160px 1fr 270px;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .event-card .line {
+    grid-column: 1 / -1;
+    margin-bottom: 24px;
+  }
+
+  .event-card img {
+    grid-column: 3;
+    grid-row: 2;
+    width: 270px;
+    height: 176px;
+    margin-bottom: 0;
+  }
+
+  .event-meta {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .event-info {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+</style>
