@@ -1,0 +1,386 @@
+---
+---
+<section class="features">
+  <div class="feature-item">
+    <svg class="feature-icon" viewBox="0 0 24 24" xmlns="w3.org">
+      <path d="M12 2L2 22h20L12 2z"/> 
+    </svg>
+    <h3>Built to Last</h3>
+    <p>Quality and durability are at the core of sustainable fashion. Older blazers are often made with stronger materials and better craftsmanship than much of today's fast fashion. This means they don't just last longer — they get better with time.</p>
+  </div>
+
+  <div class="feature-item">
+    <svg class="feature-icon" viewBox="0 0 24 24" xmlns="w3.org">
+      <path d="M12 2v20M5 12h14"/> 
+    </svg>
+    <h3>Lower CO₂, Higher Standards</h3>
+    <p>The fashion industry is one of the world's largest CO₂ emitters. By investing in existing garments instead of new ones, you can significantly reduce your environmental footprint. A vintage blazer already carries its own story — without requiring new resources.</p>
+  </div>
+
+  <div class="feature-item">
+    <svg class="feature-icon" viewBox="0 0 24 24" xmlns="w3.org">
+      <path d="M12 2l3 6 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1 3-6z"/> 
+    </svg>
+    <h3>Less Waste, More Value</h3>
+    <p>Sustainable fashion is not only about materials, but about mindset. Choosing vintage and secondhand significantly reduces the need for new production. Every blazer given a new life is one less that needs to be made. It's style with intention.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+   
+    <div class="footer-info">
+      <h4>ADDRESS</h4>
+      <p>Sankt Hans Gade 9, kld. tv,<br>2200 København</p>
+    </div>
+
+   
+    <div class="footer-info">
+      <h4>Get in touch</h4>
+      <a href="mailto:Punto@gmail.dk" class="hover-link">Punto@gmail.dk</a>
+      <br>
+      <a href="tel:+4512345667" class="hover-link">+45 12 34 56 67</a>
+    </div>
+  </div>
+
+  <div class="footer-middle">
+
+    <a href="/terms" class="footer-link hover-link">TERMS AND CONDITIONS</a>
+    
+
+      <div class="newsletter">
+    <!-- Sociale medier (Flyttet herind for at ligge på linje på desktop) -->
+    <div class="footer-follow">
+      <h4>FOLLOW</h4>
+      <div class="social-icons">
+        <a href="#" class="icon-circle">IG</a>
+        <a href="#" class="icon-circle">TT</a>
+        <a href="#" class="icon-circle">FB</a>
+      </div>
+    </div>
+
+    <label for="email">DONT MISS NEWS AND EVENTS</label>
+    <div class="newsletter-form">
+      <input type="email" id="email" placeholder="EMAIL ADRESS" />
+      <button type="submit">SIGN UP</button>
+    </div>
+  </div>
+
+
+  <div class="footer-logo">
+    <h1>PUNTO ARCHIVES</h1>
+  </div>
+</footer>
+
+
+<style>
+  h3, h4, p, a, button, input, label {
+    font-family: 'Playfair Display', serif; 
+    color: black;
+    margin: 0;
+  }
+
+  
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 20px 16px;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* SVG Ikon indstillinger */
+  .feature-icon {
+    align-self: center;
+    margin-bottom: 24px;
+    height: 80px; 
+    width: auto;
+    fill: currentColor;   
+    stroke: currentColor; 
+  }
+
+  .feature-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .feature-item p {
+    font-size: 14px;
+    line-height: 1.45;
+     
+  }
+
+  .footer {
+    padding: 20px 16px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .footer h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .footer p, 
+  .footer a {
+    font-size: 13px;
+    line-height: 1.4;
+    text-decoration: none;
+    display: block;
+  }
+
+  .footer-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  .hover-link {
+    position: relative;
+    display: inline-block !important; 
+    padding-bottom: 2px;
+    width: fit-content;
+  }
+
+  .hover-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: center; 
+    transition: transform 0.3s ease;
+  }
+
+  .hover-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .footer-link {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .icon-circle {
+    width: 28px;
+    height: 28px;
+    background-color: black;
+    color: white !important;
+    border-radius: 999px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    border: 1px solid black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+
+  .icon-circle:hover {
+    background-color: white;
+    color: black !important;
+  }
+
+  
+  .newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .newsletter label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    border-bottom: 1px solid black; 
+  }
+
+  .newsletter input {
+    border: none;
+    padding: 10px 0;
+    flex-grow: 1;
+    font-size: 13px;
+    outline: none;
+    background: transparent;
+  }
+
+  .newsletter input::placeholder {
+    color: #ccc;
+  }
+
+  .newsletter button {
+    background: black;
+    color: white;
+    border: 1px solid black;
+    padding: 10px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  
+  .newsletter button:hover {
+    background-color: white;
+    color: black;
+  }
+
+
+  .footer-logo {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .footer-logo h1 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+
+    @media (min-width: 1280px) {
+    .features {
+      flex-direction: row; 
+      max-width: 1200px;
+      gap: 80px;
+      padding: 100px 40px;
+    }
+
+    .feature-item h3 {
+      font-size: 20px;
+    }
+
+    .feature-item p {
+      font-size: 15px;
+    }
+
+    /* Gør footeren til en simpel vertikal stak med præcis kontrol over rækkerne */
+    .footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px 0px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px; /* Stor luft mellem øverste info-række og nederste bjælke */
+    }
+
+    /* ØVERSTE RÆKKE: Bliver til 3 præcise kolonner (Info, Kontakt, Vilkår) */
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    /* Flytter "Terms and Conditions" op som den tredje kolonne */
+    .footer-middle {
+      display: contents; 
+    }
+    
+    .footer-link {
+      grid-column: 3;
+      grid-row: 1;
+      align-self: start; /* Sørger for at den flugter med ADRESS og Get in touch */
+      font-size: 16px;
+    }
+
+    /* Sørger for at FOLLOW-overskriften og ikonerne pakkes tæt sammen på linje */
+    .footer-follow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-follow h4 {
+      margin-bottom: 0; /* Fjerner bund-margin, da ikonerne nu er ved siden af */
+    }
+
+    .social-icons {
+      margin-top: 0;
+    }
+
+    /* NEDERSTE RÆKKE: Samler alt på én vandret linje på tværs af skærmen */
+    .newsletter {
+      grid-row: 2;
+      grid-column: span 3;
+      margin-top: 0;
+      
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between; /* Skubber Sociale medier til venstre og input til højre */
+      width: 100%;
+    }
+
+    /* Flytter follow-blokken ind som det første element i nyhedsbrev-rækken */
+    .footer-follow {
+      order: 1;
+    }
+
+    .newsletter label {
+      order: 2;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .newsletter-form {
+      order: 3;
+      flex-grow: 1;
+      max-width: 500px; /* Styring af hvor bredt selve inputfeltet må være */
+      margin-left: 24px;
+    }
+
+    .footer h4,
+    .footer p, 
+    .footer a,
+    .newsletter input {
+      font-size: 15px;
+    }
+
+    /* Kæmpe logo i bunden */
+    .footer-logo {
+      margin-top: 60px;
+    }
+
+    .footer-logo h1 {
+      font-size: 10.7vw;
+      letter-spacing: 0.9vw;
+    }
+  }
+
+</style>
