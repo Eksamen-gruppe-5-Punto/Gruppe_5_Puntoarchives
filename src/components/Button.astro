@@ -1,0 +1,210 @@
+---
+const {
+  size = "52 (L)",
+  text = "ADD TO BAG",
+  href = "#",
+  variant = "light"
+} = Astro.props;
+---
+
+{
+  variant === "light" ? (
+
+    <a href={href} class="cart-btn">
+      <span class="size">{size}</span>
+      <span class="bag-text">{text}</span>
+    </a>
+
+  ) : (
+
+    <a href={href} class={`btn ${variant}`}>
+      <span>{text}</span>
+    </a>
+
+  )
+}
+
+<style>
+
+ /* Knapperne skal være i en section så smid denher ind før i sætter dem ind - <section class="button-test"> */
+
+
+
+
+/* SIZE + ADD TO BAG */
+
+/* 
+<Button
+  size="52 (L)"
+  text="ADD TO BAG"
+  variant="light"
+/> 
+*/
+
+
+.cart-btn {
+  width: 347px;
+  height: 48px;
+
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 9px;
+
+  text-decoration: none;
+}
+
+.size {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: black;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.bag-text {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  transition: 0.3s ease;
+}
+
+.cart-btn:hover .bag-text {
+  background: black;
+  color: white;
+}
+
+/* ONLY ADD TO BAG */
+
+/* 
+<Button
+  text="ADD TO BAG"
+  href="/cart"
+  variant="add-to-bag"
+/> 
+*/
+
+.btn.add-to-bag {
+  width: 347px;
+  height: 43px;
+  margin: 5px 0;
+
+  border: 1px solid black;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+
+  box-sizing: border-box;
+
+  transition: 0.3s ease;
+}
+
+.btn.add-to-bag:hover {
+  background: black;
+  color: white;
+}
+
+/* VIS PRODUKTER */
+
+/* 
+<Button
+  text="VIS PRODUKTER"
+  href="/shop"
+  variant="show-products"
+/> 
+*/
+
+.btn.show-products {
+  width: 100%;
+  max-width: 500px;
+  height: 43px;
+  margin: 4px 0;
+
+  background: black;
+  border: 1px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+
+  box-sizing: border-box;
+
+  transition: 0.3s ease;
+}
+
+.btn.show-products:hover {
+  background: transparent;
+  color: black;
+}
+
+/* NULSTIL FILTRE */
+
+/* 
+<Button
+  text="NULSTIL FILTRE"
+  href="/shop"
+  variant="reset-filter"
+/> 
+*/
+
+.btn.reset-filter {
+  width: 100%;
+  max-width: 500px;
+  height: 43px;
+  margin: 4px 0;
+
+  background: transparent;
+  border: 1px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+
+  box-sizing: border-box;
+
+  transition: 0.3s ease;
+}
+
+.btn.reset-filter:hover {
+  background: black;
+  color: white;
+}
+
+
+</style>
