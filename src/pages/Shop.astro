@@ -1,10 +1,59 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
+import Filterbox from "../components/Filterbox.astro";
 ---
 
 <Layout>
-	<Navigation />
-	<h2>Forside shop</h2>
+  <Navigation />
+
+  <main class="shop-page">
+    <button class="filter-open-btn" id="openFilter">
+      FILTER
+    </button>
+
+    <Filterbox />
+  </main>
+
+  <script is:inline>
+    const openBtn = document.querySelector("#openFilter");
+    const filterBox = document.querySelector("#filterBox");
+    const closeBtn = document.querySelector("#closeFilter");
+
+    openBtn.addEventListener("click", () => {
+      filterBox.classList.add("is-open");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      filterBox.classList.remove("is-open");
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("selected");
+  });
+});
+  </script>
+ 
+<style>
+  .shop-page {
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-open-btn {
+    margin-left: auto;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+  }
+</style>
 </Layout>
