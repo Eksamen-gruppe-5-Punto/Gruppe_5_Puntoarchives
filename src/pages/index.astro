@@ -1,14 +1,15 @@
 ---
-
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Pcard from "../components/Pcard.astro";
 ---
 
 <Layout>
-	<Navigation />
-	<h2>Forside hej</h2>
-	<a href="/Shop" class="dev-shortcut">→ GÅ TIL SHOP-SIDE</a>
-	<a href="/Event" class="dev-shortcut">→ GÅ TIL EVENT-SIDE</a>
-	<Footer />
+  <Navigation />
+  <h2>Forside hej</h2>
+  <a href="/Shop" class="dev-shortcut">→ GÅ TIL SHOP-SIDE</a>
+  <Pcard />
+  <Pcard />
+  <Footer />
 </Layout>
