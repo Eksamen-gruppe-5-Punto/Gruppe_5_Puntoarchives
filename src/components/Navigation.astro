@@ -95,7 +95,7 @@
     transition: transform 0.3s ease; 
   }
 
-  /* Hover effekten hvor stregen folder sig ud */
+  
   .menu-btn:hover::after,
   nav a:hover::after {
     transform: scaleX(1);
@@ -128,7 +128,7 @@
     justify-self: end;
   }
 
-  /* Wrapper for relative positioning of dropdown */
+  
   .menu {
     position: relative;
     display: inline-block;
@@ -145,7 +145,7 @@
     height: 50vh;
     background: #ffffff;
 
-    /* Make it truly hidden when closed */
+    
     visibility: hidden;
     opacity: 0;
     transform: translateY(-16px);
@@ -154,7 +154,7 @@
     pointer-events: none;
 
     z-index: 1000;
-    padding: 48px; /* you didn't have padding on desktop; add it so links show nicely */
+    padding: 48px; 
   }
 
   .dropdown.open {
@@ -165,15 +165,14 @@
     pointer-events: auto;
   }
 
-  /* Optional: style items more like a menu list */
+  
   .dropdown a {
     padding: 0;
     font-size: 18px;
     letter-spacing: 0.02em;
   }
 
-  /* If you want the underline hover on dropdown items too, remove this rule.
-     Otherwise keep it disabled. */
+  
   .dropdown a::after {
     display: none;
   }
@@ -231,7 +230,7 @@
     transition: opacity 0.18s ease, visibility 0s linear 0.18s;
     pointer-events: none;
 
-    /* layer order: header (2000) > dropdown (1000) > backdrop (900) > page */
+    
     z-index: 900;
   }
 
@@ -239,7 +238,7 @@
     opacity: 1;
     visibility: visible;
     transition: opacity 0.18s ease;
-    pointer-events: auto; /* allow click to close */
+    pointer-events: auto; 
   }
 </style>
 
