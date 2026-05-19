@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
-import Filterbox from "../components/Filterbox.astro";
+import Filterbox from '../components/Filterbox.astro';
 ---
 
 <Layout>
   <Navigation />
 
   <main class="shop-page">
-    <button class="filter-open-btn" id="openFilter">
+    <button class="filter-open-btn" id="openFilter" type="button">
       FILTER
     </button>
 
@@ -30,30 +30,44 @@ import Filterbox from "../components/Filterbox.astro";
 
     const filterButtons = document.querySelectorAll(".filter-btn");
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.toggle("selected");
-  });
-});
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("selected");
+      });
+    });
+
+    const resetButton = document.querySelector(".btn.reset-filter");
+
+    resetButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      filterButtons.forEach((button) => {
+        button.classList.remove("selected");
+      });
+
+      const checkboxes = document.querySelectorAll(".checkbox-list input");
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+    });
   </script>
- 
-<style>
-  .shop-page {
-    padding: 40px;
 
-    display: flex;
-    flex-direction: column;
-  }
+  <style>
+    .shop-page {
+      padding: 120px 40px 40px;
+    }
 
-  .filter-open-btn {
-    margin-left: auto;
-
-    background: transparent;
-    border: none;
-
-    cursor: pointer;
-
-    font-size: 16px;
-  }
-</style>
+    .filter-open-btn {
+      display: block;
+      margin-left: auto;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+	  position: fixed;
+	  right: 0;
+	  padding-right: 40px;
+    }
+  </style>
 </Layout>

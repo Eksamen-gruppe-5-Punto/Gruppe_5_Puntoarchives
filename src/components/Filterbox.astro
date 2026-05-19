@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+
 const colors = [
   { name: "BLUE", color: "#4c63d9" },
   { name: "BLACK", color: "#000" },
@@ -12,23 +13,26 @@ const colors = [
 
 const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 const materials = ["COTTON", "WOOL", "SILK"];
-const sortOptions = ["NEW ARRIVALS",
+
+const sortOptions = [
+  "NEW ARRIVALS",
   "HIGHEST PRICE",
   "LOWEST PRICE",
-  "SALE"];
+  "SALE",
+];
 ---
 
 <aside class="filter-box" id="filterBox">
   <div class="filter-header">
     <h2>FILTER</h2>
-    <button class="close-btn" id="closeFilter">×</button>
+    <button class="close-btn" id="closeFilter" type="button">×</button>
   </div>
 
   <section>
     <h3>COLOR</h3>
     <div class="button-grid">
       {colors.map((color) => (
-        <button class="filter-btn">
+        <button class="filter-btn" type="button">
           {color.color && <span style={`background-color:${color.color}`}></span>}
           {color.name}
         </button>
@@ -40,7 +44,7 @@ const sortOptions = ["NEW ARRIVALS",
     <h3>SIZE</h3>
     <div class="button-grid">
       {sizes.map((size) => (
-        <button class="filter-btn">{size}</button>
+        <button class="filter-btn" type="button">{size}</button>
       ))}
     </div>
   </section>
@@ -49,7 +53,7 @@ const sortOptions = ["NEW ARRIVALS",
     <h3>MATERIAL</h3>
     <div class="button-grid">
       {materials.map((material) => (
-        <button class="filter-btn">{material}</button>
+        <button class="filter-btn" type="button">{material}</button>
       ))}
     </div>
   </section>
@@ -66,16 +70,17 @@ const sortOptions = ["NEW ARRIVALS",
     </div>
   </section>
 
- <Button
-  text="SHOW PRODUCTS"
-  href="/shop"
-  variant="show-products"
-/> 
-<Button
-  text="RESET FILTRE"
-  href="/shop"
-  variant="reset-filter"
-/> 
+  <Button
+    text="SHOW PRODUCTS"
+    href="#"
+    variant="show-products"
+  />
+
+  <Button
+    text="RESET FILTRE"
+    href="#"
+    variant="reset-filter"
+  />
 </aside>
 
 <style>
@@ -84,15 +89,15 @@ const sortOptions = ["NEW ARRIVALS",
     top: 0;
     right: 0;
 
-  width: 30%;
-max-width: 420px;
-min-width: 340px;
+    width: 30%;
+    max-width: 420px;
+    min-width: 340px;
     height: 100vh;
 
     background: white;
-    z-index: 999;
+    z-index: 4000;
 
-padding: 24px 20px;
+    padding: 24px 20px;
     box-sizing: border-box;
 
     transform: translateX(100%);
@@ -122,8 +127,10 @@ padding: 24px 20px;
     position: absolute;
     right: 0;
     top: -5px;
+
     background: none;
     border: none;
+
     font-size: 28px;
     cursor: pointer;
   }
@@ -145,25 +152,24 @@ padding: 24px 20px;
   }
 
   .filter-btn {
-  min-width: 78px;
-  height: 31px;
-  padding: 0 12px;
+    min-width: 78px;
+    height: 31px;
+    padding: 0 12px;
 
-  border: 1px solid black;
-  background: white;
-  color: black;
+    border: 1px solid black;
+    background: white;
+    color: black;
 
-  font-size: 14px;
-  cursor: pointer;
+    font-size: 14px;
+    cursor: pointer;
 
-  transition: 0.1s ease;
-}
+    transition: 0.1s ease;
+  }
 
-
-.filter-btn.selected {
-  background: black;
-  color: white;
-}
+  .filter-btn.selected {
+    background: black;
+    color: white;
+  }
 
   .filter-btn span {
     display: inline-block;
@@ -173,59 +179,36 @@ padding: 24px 20px;
     margin-right: 7px;
   }
 
- .checkbox-list {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
+  .checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
 
-.checkbox-list label {
-  display: flex;
-  align-items: center;
+  .checkbox-list label {
+    display: flex;
+    align-items: center;
 
-  font-size: 14px;
-  cursor: pointer;
-}
+    font-size: 14px;
+    cursor: pointer;
+  }
 
-.checkbox-list input {
-  appearance: none;
+  .checkbox-list input {
+    appearance: none;
 
-  width: 18px;
-  height: 18px;
+    width: 18px;
+    height: 18px;
 
-  border: 1px solid black;
-  background: white;
+    border: 1px solid black;
+    background: white;
 
-  margin-right: 10px;
-
-  cursor: pointer;
-}
-
-.checkbox-list input:checked {
-  background: black;
-}
-
-  .show-btn,
-  .reset-btn {
-    width: 100%;
-    height: 44px;
-
-    font-size: 15px;
-    margin-top: 10px;
+    margin-right: 10px;
 
     cursor: pointer;
   }
 
-  .show-btn {
+  .checkbox-list input:checked {
     background: black;
-    color: white;
-    border: 1px solid black;
-  }
-
-  .reset-btn {
-    background: white;
-    color: black;
-    border: 1px solid black;
   }
 
   @media (max-width: 700px) {
