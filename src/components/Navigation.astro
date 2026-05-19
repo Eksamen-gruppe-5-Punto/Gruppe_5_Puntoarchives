@@ -16,9 +16,9 @@ import Cartbox from "../components/Cartbox.astro";
     </button>
 
     <div class="dropdown" id="menuDropdown" role="menu" aria-hidden="true">
-      <a href="/shop" role="menuitem" tabindex="-1">SHOP</a>
-      <a href="/about" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK</a>
-      <a href="/events" role="menuitem" tabindex="-1">EVENTS</a>
+      <a href="/shop" role="menuitem" tabindex="-1">SHOP <span class="arrow"> > </span></a>
+      <a href="/about" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK <span class="arrow"> > </span></a>
+      <a href="/events" role="menuitem" tabindex="-1">EVENTS <span class="arrow"> > </span></a>
     </div>
   </div>
 
@@ -180,11 +180,19 @@ import Cartbox from "../components/Cartbox.astro";
     padding: 0;
     font-size: 18px;
     letter-spacing: 0.02em;
+    margin: 20px;
+    display: block;
+    color: black;
+    text-decoration: none;
   }
 
   
   .dropdown a::after {
     display: none;
+  }
+
+  .arrow {
+    font-size: 1.4rem;
   }
 
   /* Mobile: make it full width */
