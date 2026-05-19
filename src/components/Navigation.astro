@@ -1,8 +1,25 @@
 ---
 
 ---
-<header class="header">
-  <button class="menu-btn">MENU</button>
+<header class="header" id="siteHeader">
+  <div class="menu">
+    <button
+      class="menu-btn"
+      id="menuButton"
+      aria-controls="menuDropdown"
+      aria-expanded="false"
+      aria-haspopup="true"
+      type="button"
+    >
+      MENU
+    </button>
+
+    <div class="dropdown" id="menuDropdown" role="menu" aria-hidden="true">
+      <a href="/shop" role="menuitem" tabindex="-1">SHOP</a>
+      <a href="/about" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK</a>
+      <a href="/events" role="menuitem" tabindex="-1">EVENTS</a>
+    </div>
+  </div>
 
   <a href="/" class="logo">
     <span>PUNTO</span>
@@ -10,17 +27,38 @@
   </a>
 
   <nav>
-    <a href="/">PROFILE</a>
-    <a href="/">BAG</a>
+    <a href="/profile">PROFILE</a>
+    <a href="/bag">BAG</a>
   </nav>
 </header>
 
+<!-- Backdrop (darkens the rest of the page) -->
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
 <style>
+  :root {
+    --header-height: 72px;
+  }
+
   .header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: start;
     padding: 20px 16px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000; /* make sure header is always above dropdown */
+
+    /* IMPORTANT: no white bar on homepage */
+    background: transparent;
+  }
+
+  /* When menu is open, header can be white (optional) */
+  .header.menu-open {
+    background: #fff;
   }
 
   .menu-btn,
@@ -90,6 +128,64 @@
     justify-self: end;
   }
 
+  /* Wrapper for relative positioning of dropdown */
+  .menu {
+    position: relative;
+    display: inline-block;
+    justify-self: start;
+  }
+
+  /* Dropdown styling (hidden by default) */
+  .dropdown {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+
+    width: 100vw;
+    height: 50vh;
+    background: #ffffff;
+
+    /* Make it truly hidden when closed */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-16px);
+
+    transition: opacity 0.18s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+    pointer-events: none;
+
+    z-index: 1000;
+    padding: 48px; /* you didn't have padding on desktop; add it so links show nicely */
+  }
+
+  .dropdown.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.18s ease, transform 0.22s ease;
+    pointer-events: auto;
+  }
+
+  /* Optional: style items more like a menu list */
+  .dropdown a {
+    padding: 0;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  /* If you want the underline hover on dropdown items too, remove this rule.
+     Otherwise keep it disabled. */
+  .dropdown a::after {
+    display: none;
+  }
+
+  /* Mobile: make it full width */
+  @media (max-width: 768px) {
+    .dropdown {
+      width: 100vw;
+      padding: 96px 24px 24px;
+    }
+  }
+
   /* DESKTOP */
 
   @media (min-width: 1280px) {
@@ -118,4 +214,84 @@
       gap: 48px;
     }
   }
+
+  .menu-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* start below the header so the header stays visible */
+    top: var(--header-height);
+
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.18s ease, visibility 0s linear 0.18s;
+    pointer-events: none;
+
+    /* layer order: header (2000) > dropdown (1000) > backdrop (900) > page */
+    z-index: 900;
+  }
+
+  .menu-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.18s ease;
+    pointer-events: auto; /* allow click to close */
+  }
 </style>
+
+<script type="module">
+  const header = document.getElementById('siteHeader');
+  const btn = document.getElementById('menuButton');
+  const dropdown = document.getElementById('menuDropdown');
+  const backdrop = document.getElementById('menuBackdrop');
+
+  function syncHeaderHeight() {
+    const h = header?.offsetHeight ?? 72;
+    document.documentElement.style.setProperty('--header-height', `${h}px`);
+  }
+
+  function openMenu() {
+    header?.classList.add('menu-open');
+    btn?.setAttribute('aria-expanded', 'true');
+    dropdown?.setAttribute('aria-hidden', 'false');
+    dropdown?.classList.add('open');
+
+    backdrop?.setAttribute('aria-hidden', 'false');
+    backdrop?.classList.add('open');
+  }
+
+  function closeMenu() {
+    header?.classList.remove('menu-open');
+    btn?.setAttribute('aria-expanded', 'false');
+    dropdown?.setAttribute('aria-hidden', 'true');
+    dropdown?.classList.remove('open');
+
+    backdrop?.setAttribute('aria-hidden', 'true');
+    backdrop?.classList.remove('open');
+  }
+
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+  window.addEventListener('load', syncHeaderHeight);
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  // Click on backdrop closes menu
+  backdrop?.addEventListener('click', closeMenu);
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown?.contains(e.target) && !btn?.contains(e.target)) closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>
