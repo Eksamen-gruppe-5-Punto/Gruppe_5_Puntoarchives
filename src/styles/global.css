@@ -1,0 +1,52 @@
+html,
+body {
+  font-family: "playfair display", serif;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: 0.88px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.56px;
+  margin-bottom: 16px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "merriweather sans", sans-serif;
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "merriweather sans", sans-serif;
+  }
+}
