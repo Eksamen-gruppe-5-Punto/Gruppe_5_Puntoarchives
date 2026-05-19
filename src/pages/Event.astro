@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import eventImage from '../assets/111.png';
 import eventVideo from '../assets/Untitled.mp4';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const events = [
   {
@@ -29,6 +31,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
 ---
 
 <Layout>
+  <Navigation />
   <section class="event-page">
 
     <section class="hero-section">
@@ -52,27 +55,30 @@ An outdoor evening with food, fashion, music and creative conversations bringing
         </p>
       </section>
     </section>
+<section class="upcoming">
+  <h2>UPCOMING <br /> EVENTS</h2>
 
-    <section class="upcoming">
-      <h2>UPCOMING <br /> EVENTS</h2>
+  {events.map((event) => (
+    <article class="event-card">
+      <div class="line"></div>
 
-      {events.map((event) => (
-        <article class="event-card">
-          <div class="line"></div>
+      <img src={eventImage.src} alt="Event image" />
 
-          <img src={eventImage.src} alt="Event image" />
+      <div class="event-meta">
+        <h3>{event.date}</h3>
+        <p class="time">{event.time}</p>
+      </div>
 
-          <div class="event-meta">
-            <h3>{event.date}</h3>
-            <p class="time">{event.time}</p>
-          </div>
+      <p class="event-info">{event.info}</p>
+    </article>
+  ))}
 
-          <p class="event-info">{event.info}</p>
-        </article>
-      ))}
-    </section>
+  <div class="line"></div>
+
+</section>
 
   </section>
+  <Footer />
 </Layout>
 
 <style>
@@ -175,7 +181,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   .event-page {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 90px 64px 120px;
+    padding: 5px 40px 120px;
   }
 
   .hero-section {

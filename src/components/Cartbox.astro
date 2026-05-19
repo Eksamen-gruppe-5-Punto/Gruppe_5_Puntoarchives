@@ -1,0 +1,237 @@
+---
+import Button from "./Button.astro";
+import kurvImage from "../assets/kurv.png";
+
+const cartItems = [
+  {
+    brand: "KENZO",
+    name: "Kenzo Homme Brown and Beige Cotten Sport Jacket Blazer",
+    price: 649,
+    quantity: 1,
+    image: kurvImage.src
+  },
+  {
+    brand: "KENZO",
+    name: "Kenzo Homme Brown and Beige Cotten Sport Jacket Blazer",
+    price: 649,
+    quantity: 1,
+    image: kurvImage.src
+  }
+];
+
+const isEmpty = cartItems.length === 0;
+
+const subtotal = cartItems.reduce((total, item) => {
+  return total + item.price * item.quantity;
+}, 0);
+
+const shipping = 35;
+const total = subtotal + shipping;
+---
+
+<aside class="cart-box" id="cartBox">
+
+  <div class="cart-header">
+    <h2>
+      {isEmpty
+        ? `YOUR CART IS EMPTY (0)`
+        : `CART (${cartItems.length})`}
+    </h2>
+
+    <button class="close-cart-btn" id="closeCart">×</button>
+  </div>
+
+  {!isEmpty && (
+    <>
+      <div class="cart-items">
+        {cartItems.map((item) => (
+          <article class="cart-item">
+            <img src={item.image} alt={item.name} />
+
+            <div class="cart-info">
+              <p class="brand">{item.brand}</p>
+
+              <h3>{item.name}</h3>
+
+              <div class="cart-bottom">
+                <span>{item.quantity}</span>
+                <span>{item.price} DKK</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <section class="summary">
+        <h3>SUMMARY</h3>
+
+        <div>
+          <span>Sum articles</span>
+          <span>{subtotal.toLocaleString("da-DK")} DKK</span>
+        </div>
+
+        <div>
+          <span>Shipping</span>
+          <span>{shipping} DKK</span>
+        </div>
+      </section>
+
+      <div class="total">
+        <span>TOTAL</span>
+        <span>{total.toLocaleString("da-DK")} DKK</span>
+      </div>
+    </>
+  )}
+
+  <div class="cart-actions">
+    <Button
+      text="CHECK OUT"
+      href="/checkout"
+      variant="show-products"
+    />
+
+    <Button
+      text="CONTINUE SHOPPING"
+      href="/shop"
+      variant="reset-filter"
+    />
+  </div>
+
+</aside>
+
+<style>
+  .cart-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 30%;
+    max-width: 420px;
+    min-width: 340px;
+    height: 100vh;
+
+    background: white;
+    z-index: 999;
+
+    padding: 24px 20px;
+    box-sizing: border-box;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    overflow-y: auto;
+  }
+
+  :global(.cart-box.is-open) {
+    transform: translateX(0);
+  }
+
+  .cart-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    margin-bottom: 45px;
+  }
+
+  .cart-header h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .close-cart-btn {
+    position: absolute;
+    right: 0;
+    top: -5px;
+
+    background: none;
+    border: none;
+
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  .cart-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid black;
+  }
+
+  .cart-item img {
+    width: 120px;
+    height: 170px;
+
+    object-fit: cover;
+  }
+
+  .brand {
+    font-size: 12px;
+    margin: 0 0 10px;
+  }
+
+  .cart-info h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .cart-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 70px;
+
+    font-size: 16px;
+  }
+
+  .summary {
+    border-bottom: 1px solid black;
+
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+
+  .summary h3 {
+    font-size: 16px;
+    font-weight: 400;
+
+    margin-bottom: 24px;
+  }
+
+  .summary div,
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .total {
+    font-weight: 700;
+  }
+
+  .cart-actions {
+    margin-top: 50px;
+  }
+
+  .empty-cart {
+    min-height: 70vh;
+  }
+
+  @media (max-width: 700px) {
+    .cart-box {
+      width: 100%;
+      max-width: none;
+      min-width: unset;
+    }
+  }
+</style>
