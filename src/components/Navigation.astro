@@ -1,5 +1,6 @@
 ---
-
+/* IMPORT CARTBOX COMPONENT */
+import Cartbox from "../components/Cartbox.astro";
 ---
 <header class="header" id="siteHeader">
   <div class="menu">
@@ -28,12 +29,17 @@
 
   <nav>
     <a href="/profile">PROFILE</a>
-    <a href="/bag">BAG</a>
+   <button class="bag-btn" id="openCart">
+      BAG
+    </button>
   </nav>
 </header>
 
 <!-- Backdrop (darkens the rest of the page) -->
 <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+<!-- SELVE KURV BOXEN -->
+<Cartbox />
 
 <style>
   :root {
@@ -62,7 +68,8 @@
   }
 
   .menu-btn,
-  nav a {
+  nav a,
+  .bag-btn  {
     background: none;
     border: none;
     padding: 0;
@@ -79,8 +86,10 @@
     padding-bottom: 4px; 
   }
 
+ /* MENU + LINKS + BAG */
   .menu-btn::after,
-  nav a::after {
+  nav a::after,
+   .bag-btn::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -97,7 +106,8 @@
 
   
   .menu-btn:hover::after,
-  nav a:hover::after {
+  nav a:hover::after,  
+  .bag-btn:hover::after {
     transform: scaleX(1);
   }
 
@@ -193,7 +203,7 @@
     }
 
     .menu-btn,
-    nav a {
+    nav a,  .bag-btn {
       font-size: 20px;
     }
 
@@ -293,4 +303,24 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
   });
+  
+</script>
+<!-- SCRIPT TIL ÅBEN/LUK KURV -->
+<script is:inline>
+
+  /* KNAPPER */
+  const openCart = document.querySelector("#openCart");
+  const cartBox = document.querySelector("#cartBox");
+  const closeCart = document.querySelector("#closeCart");
+
+  /* ÅBN KURV */
+  openCart?.addEventListener("click", () => {
+    cartBox?.classList.add("is-open");
+  });
+
+  /* LUK KURV */
+  closeCart?.addEventListener("click", () => {
+    cartBox?.classList.remove("is-open");
+  });
+
 </script>
