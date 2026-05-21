@@ -30,7 +30,7 @@ import Cartbox from "../components/Cartbox.astro";
             <span class="news-number">01</span>
             <span class="news-label">NEWS</span>
           </div>
-          <img class="news-image" src="/images/news-01.jpg" alt="News 01" loading="lazy" />
+          <img class="news-image" src="src/assets/suitpaastol.jpg" alt="News 01" loading="lazy" />
         </a>
 
         <a class="news-card" href="/news/02">
@@ -38,7 +38,7 @@ import Cartbox from "../components/Cartbox.astro";
             <span class="news-number">02</span>
             <span class="news-label">NEWS</span>
           </div>
-          <img class="news-image" src="/images/news-02.jpg" alt="News 02" loading="lazy" />
+          <img class="news-image" src="src/assets/kaareogida.jpg" alt="News 02" loading="lazy" />
         </a>
       </div>
     </div>
@@ -81,7 +81,7 @@ import Cartbox from "../components/Cartbox.astro";
     z-index: 2000; /* make sure header is always above dropdown */
 
     /* IMPORTANT: no white bar on homepage */
-    background: transparent;
+    background: #fff;
   }
 
   /* When menu is open, header can be white (optional) */
@@ -276,14 +276,16 @@ import Cartbox from "../components/Cartbox.astro";
     letter-spacing: 0.12em;
   }
 
-  .news-image {
-    width: 100%;
-    max-width: 450px;
-    height: 320px;        /* tweak to match your reference */
-    display: block;
-    background: #f3f3f3;  /* placeholder color while loading */
-    object-fit: cover;
-  }
+  /* MOBIL */
+.news-image {
+  
+  max-width: 450px;
+  height: 320px;
+  display: block;
+  background: #f3f3f3;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
 
   /* Optional hover: slight zoom */
   .news-card:hover .news-image,
@@ -293,10 +295,7 @@ import Cartbox from "../components/Cartbox.astro";
   .news-image {
     transition: transform 0.25s ease;
   }
-
-  /* Responsive: stack news under links */
-  @media (max-width: 900px) {
-    .dropdown {
+  .dropdown {
       grid-template-columns: 1fr;
       height: auto;
       max-height: calc(100vh - var(--header-height));
@@ -307,12 +306,18 @@ import Cartbox from "../components/Cartbox.astro";
     }
     .news-image {
       height: 240px;
+      
     }
-  }
+  
+
+
+  /* Responsive: stack news under links */
+  @media (max-width: 1280px) {
+  
 
   /* DESKTOP */
 
-  @media (min-width: 1280px) {
+
     .header {
       padding: 20px 16px;
     }
@@ -337,6 +342,8 @@ import Cartbox from "../components/Cartbox.astro";
     nav {
       gap: 48px;
     }
+
+   
   }
 
   .menu-backdrop {
@@ -365,6 +372,9 @@ import Cartbox from "../components/Cartbox.astro";
     transition: opacity 0.18s ease;
     pointer-events: auto; 
   }
+
+
+   
 </style>
 
 <script type="module">
