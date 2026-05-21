@@ -16,9 +16,31 @@ import Cartbox from "../components/Cartbox.astro";
     </button>
 
     <div class="dropdown" id="menuDropdown" role="menu" aria-hidden="true">
-      <a href="/Shop" role="menuitem" tabindex="-1">SHOP <span class="arrow"> > </span></a>
-      <a href="/Aboutlookbook" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK <span class="arrow"> > </span></a>
-      <a href="/Event" role="menuitem" tabindex="-1">EVENTS <span class="arrow"> > </span></a>
+      <!-- LEFT: your existing links (kept in same place) -->
+      <div class="dropdown-left" aria-label="Main menu">
+        <a href="/Shop" role="menuitem" tabindex="-1">SHOP <span class="arrow"> > </span></a>
+        <a href="/Aboutlookbook" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK <span class="arrow"> > </span></a>
+        <a href="/Event" role="menuitem" tabindex="-1">EVENTS <span class="arrow"> > </span></a>
+      </div>
+
+      <!-- RIGHT: two news items -->
+      <div class="dropdown-right" aria-label="News">
+        <a class="news-card" href="/news/01">
+          <div class="news-meta">
+            <span class="news-number">01</span>
+            <span class="news-label">NEWS</span>
+          </div>
+          <img class="news-image" src="/images/news-01.jpg" alt="News 01" loading="lazy" />
+        </a>
+
+        <a class="news-card" href="/news/02">
+          <div class="news-meta">
+            <span class="news-number">02</span>
+            <span class="news-label">NEWS</span>
+          </div>
+          <img class="news-image" src="/images/news-02.jpg" alt="News 02" loading="lazy" />
+        </a>
+      </div>
     </div>
   </div>
 
@@ -29,7 +51,7 @@ import Cartbox from "../components/Cartbox.astro";
 
   <nav>
     <a href="/Profile">PROFILE</a>
-   <button class="bag-btn" id="openCart">
+    <button class="bag-btn" id="openCart">
       BAG
     </button>
   </nav>
@@ -155,16 +177,20 @@ import Cartbox from "../components/Cartbox.astro";
     height: 50vh;
     background: #ffffff;
 
-    
     visibility: hidden;
     opacity: 0;
     transform: translateY(-16px);
-
     transition: opacity 0.18s ease, transform 0.22s ease, visibility 0s linear 0.22s;
     pointer-events: none;
 
     z-index: 1000;
-    padding: 48px; 
+    padding: 48px;
+
+    /* NEW: 2-column layout */
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
   }
 
   .dropdown.open {
@@ -175,31 +201,112 @@ import Cartbox from "../components/Cartbox.astro";
     pointer-events: auto;
   }
 
-  
-  .dropdown a {
+  /* LEFT links: keep vertical stacking and same look */
+  .dropdown-left {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  /* (your existing .dropdown a styles stay, but now apply to both sides)
+     Limit underline effect to JUST the left menu links: */
+  .dropdown-left a {
     padding: 0;
     font-size: 18px;
     letter-spacing: 0.02em;
-    margin: 20px;
-    display: block;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
     color: black;
     text-decoration: none;
+    position: relative;
+    padding-bottom: 6px;
+    width: fit-content;
   }
 
-  
-  .dropdown a::after {
-    display: none;
+  .dropdown-left a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
   }
 
-  .arrow {
-    font-size: 1.4rem;
+  .dropdown-left a:hover::after,
+  .dropdown-left a:focus-visible::after {
+    transform: scaleX(1);
   }
 
-  /* Mobile: make it full width */
-  @media (max-width: 768px) {
+  /* RIGHT: news grid */
+  .dropdown-right {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 28px;
+    justify-content: end;
+    align-items: start;
+  }
+
+  .news-card {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .news-number {
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  .news-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .news-image {
+    width: 100%;
+    max-width: 450px;
+    height: 320px;        /* tweak to match your reference */
+    display: block;
+    background: #f3f3f3;  /* placeholder color while loading */
+    object-fit: cover;
+  }
+
+  /* Optional hover: slight zoom */
+  .news-card:hover .news-image,
+  .news-card:focus-visible .news-image {
+    transform: scale(1.02);
+  }
+  .news-image {
+    transition: transform 0.25s ease;
+  }
+
+  /* Responsive: stack news under links */
+  @media (max-width: 900px) {
     .dropdown {
-      width: 100vw;
-      padding: 96px 24px 24px;
+      grid-template-columns: 1fr;
+      height: auto;
+      max-height: calc(100vh - var(--header-height));
+      overflow: auto;
+    }
+    .dropdown-right {
+      grid-template-columns: 1fr;
+    }
+    .news-image {
+      height: 240px;
     }
   }
 
