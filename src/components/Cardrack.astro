@@ -1,0 +1,66 @@
+---
+import Card from "./Pcard.astro";
+---
+
+<section class="card-rack">
+  <Card />
+  <Card />
+  <Card />
+</section>
+
+<style>
+  .card-rack {
+    width: 100%;
+
+    padding: 0 16px 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    row-gap: 34px;
+  }
+
+  .card-rack :global(.card) {
+    width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .card-rack {
+      max-width: 1320px;
+
+      /* fjernet bund-margin */
+      margin: 40px auto 0;
+
+      padding: 0 32px 0;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 349px);
+
+      justify-content: space-between;
+
+      column-gap: 70px;
+      row-gap: 110px;
+    }
+
+    .card-rack :global(.card) {
+      width: 349px;
+    }
+
+    .card-rack :global(.card:nth-child(2)) {
+      margin-top: 240px;
+    }
+
+    .card-rack :global(.card:nth-child(3)) {
+      margin-top: 0;
+    }
+
+    .card-rack :global(.card:nth-child(4)) {
+      margin-top: -40px;
+    }
+
+    .card-rack :global(.card:nth-child(5)) {
+      margin-top: 40px;
+    }
+  }
+</style>
