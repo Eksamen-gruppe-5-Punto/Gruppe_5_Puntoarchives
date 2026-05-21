@@ -4,29 +4,35 @@
 
 <section class="product-section">
   <div class="product-grid">
-    <div class="image-bg image-bg-small"></div>
+    <a class="back">BACK</a>
+
+    <h1 class="headline">BLAZER</h1>
 
     <div class="image-frame image-frame-main">
       <img src="https://placehold.co/539x813" alt="Beige Blazer" />
     </div>
 
-    <div class="image-frame image-frame-bottom">
-      <img src="https://placehold.co/539x813" alt="Beige Blazer" />
+    <div class="product-info">
+      <p class="product-brand">KENZO</p>
+      <h2 class="product-title">Beige Blazer</h2>
+      <p class="product-size">Størrelse 52 (L)</p>
+      <p class="product-price">DKK 649,-</p>
+      <button class="add-to-bag">ADD TO BAG</button>
     </div>
 
     <div class="description">
       <span class="dropcap">L</span>
       <p>
-        orem ipsum dolor sit amet, consectetur adipiscing edit. Sed do eiusmod
+        orem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore Excepteur sint occaecat cupidatat
         non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </p>
     </div>
 
-    <div class="product-title">Beige Blazer</div>
-    <div class="product-size">Størrelse 52 (L)</div>
-    <div class="product-price">DKK 649,-</div>
+    <div class="image-frame image-frame-bottom">
+      <img src="https://placehold.co/539x813" alt="Beige Blazer" />
+    </div>
 
     <img
       class="image-small"
@@ -35,165 +41,239 @@
     />
 
     <div class="page-number">09</div>
-    <h1 class="headline">BLAZER</h1>
-
-    <button class="add-to-bag">ADD TO BAG</button>
   </div>
 </section>
 
 <style>
   .product-section {
     width: 100%;
-    height: 100%;
+    background: white;
+    padding: 22px 16px 80px;
   }
 
   .product-grid {
     width: 100%;
-    height: 100%;
-    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .image-bg-small {
-    width: 290px;
-    height: 437px;
-    left: 582px;
-    top: 571px;
-    position: absolute;
-    background: #e2e2e2;
+  .back {
+    display: none;
+  }
+
+  .headline {
+    margin: 0 0 16px;
+    font-family: "Bodoni 72", "Playfair Display", serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
   }
 
   .image-frame {
-    position: absolute;
     background: #e2e2e2;
     overflow: hidden;
   }
 
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .image-frame-main {
-    width: 539px;
-    height: 673px;
-    left: 0;
-    top: 91px;
+    width: 100%;
+    aspect-ratio: 539 / 813;
+    margin-bottom: 12px;
   }
 
-  .image-frame-main img {
-    width: 539px;
-    height: 813px;
-    left: 0;
-    top: -70px;
-    position: absolute;
-  }
-
-  .image-frame-bottom {
-    width: 497px;
-    height: 603px;
-    left: 42px;
-    top: 805px;
-  }
-
-  .image-frame-bottom img {
-    width: 539px;
-    height: 813px;
-    left: 0;
-    top: -140px;
-    position: absolute;
-  }
-
-  .description {
-    width: 430px;
-    left: 613px;
-    top: 382px;
-    position: absolute;
-    color: black;
-    font-size: 14px;
+  .product-brand {
+    margin: 0 0 4px;
     font-family: "Merriweather Sans", sans-serif;
-    font-weight: 400;
-    line-height: 1.55;
-  }
-
-  .description p {
-    margin: 0;
-  }
-
-  .dropcap {
-    float: left;
-    font-size: 46px;
-    line-height: 0.85;
-    margin-right: 5px;
-    font-family: "Playfair Display", serif;
+    font-size: 7px;
   }
 
   .product-title {
-    width: 509px;
-    left: 613px;
-    top: 169px;
-    position: absolute;
-    color: black;
-    font-size: 32px;
+    margin: 0 0 4px;
     font-family: "Playfair Display", serif;
+    font-size: 12px;
     font-weight: 400;
   }
 
   .product-size {
-    left: 613px;
-    top: 230px;
-    position: absolute;
-    color: black;
-    font-size: 14px;
+    margin: 0 0 8px;
     font-family: "Merriweather Sans", sans-serif;
+    font-size: 9px;
   }
 
   .product-price {
-    width: 313px;
-    left: 613px;
-    top: 254px;
-    position: absolute;
-    color: black;
-    font-size: 28px;
+    margin: 0 0 14px;
     font-family: "Playfair Display", serif;
-  }
-
-  .image-small {
-    width: 290px;
-    height: 437px;
-    left: 582px;
-    top: 571px;
-    position: absolute;
-  }
-
-  .page-number {
-    width: 81px;
-    left: 1072px;
-    top: 671px;
-    position: absolute;
-    color: black;
-    font-size: 70px;
-    font-family: "Playfair Display", serif;
-    font-weight: 400;
-  }
-
-  .headline {
-    left: 0;
-    top: 0;
-    position: absolute;
-    color: black;
-    font-size: 64px;
-    font-family: "Bodoni 72", serif;
-    font-weight: 400;
-    margin: 0;
+    font-size: 13px;
   }
 
   .add-to-bag {
-    width: 463px;
-    height: 63px;
-    left: 613px;
-    top: 313px;
-    position: absolute;
+    width: 100%;
+    height: 40px;
     border: 1px solid black;
     background: transparent;
-    color: black;
-    font-size: 14px;
     font-family: "Playfair Display", serif;
-    font-weight: 400;
+    font-size: 9px;
     cursor: pointer;
+    margin-bottom: 80px;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .image-frame-bottom {
+    width: 100%;
+    aspect-ratio: 539 / 813;
+    margin-bottom: 28px;
+  }
+
+  .image-small {
+    width: 100%;
+    display: block;
+  }
+
+  .page-number {
+    display: none;
+  }
+
+  /* DESKTOP */
+  @media (min-width: 900px) {
+    .product-section {
+      padding: 90px 0 80px;
+    }
+
+    .product-grid {
+      max-width: 1290px;
+      height: 1408px;
+      position: relative;
+    }
+
+    .back {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-family: "Merriweather Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    .headline {
+      position: absolute;
+      left: 0;
+      top: 34px;
+      margin: 0;
+      font-size: 64px;
+    }
+
+    .image-frame-main {
+      position: absolute;
+      width: 539px;
+      height: 673px;
+      left: 0;
+      top: 112px;
+      margin: 0;
+    }
+
+    .image-frame-main img {
+      width: 539px;
+      height: 813px;
+      object-fit: cover;
+      object-position: center -70px;
+    }
+
+    .product-info {
+      position: absolute;
+      left: 610px;
+      top: 230px;
+      width: 463px;
+    }
+
+    .product-brand {
+      display: none;
+    }
+
+    .product-title {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .product-size {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-size: 28px;
+      margin-bottom: 22px;
+    }
+
+    .add-to-bag {
+      width: 463px;
+      height: 63px;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .description {
+      display: block;
+      position: absolute;
+      left: 610px;
+      top: 470px;
+      width: 430px;
+      font-family: "Merriweather Sans", sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .description p {
+      margin: 0;
+    }
+
+    .dropcap {
+      float: left;
+      font-size: 46px;
+      line-height: 0.85;
+      margin-right: 6px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .image-frame-bottom {
+      position: absolute;
+      width: 497px;
+      height: 603px;
+      left: 42px;
+      top: 830px;
+      margin: 0;
+    }
+
+    .image-frame-bottom img {
+      width: 539px;
+      height: 813px;
+      object-fit: cover;
+      object-position: center -140px;
+    }
+
+    .image-small {
+      position: absolute;
+      width: 290px;
+      height: 437px;
+      left: 580px;
+      top: 650px;
+      object-fit: cover;
+    }
+
+    .page-number {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 780px;
+      font-family: "Playfair Display", serif;
+      font-size: 70px;
+    }
   }
 </style>
