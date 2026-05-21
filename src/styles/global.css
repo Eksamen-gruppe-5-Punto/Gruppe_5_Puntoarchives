@@ -1,6 +1,10 @@
+* {
+  font-family: inherit;
+}
+
 html,
 body {
-  font-family: "playfair display", serif;
+  font-family: "Playfair Display", serif;
 }
 
 h1 {

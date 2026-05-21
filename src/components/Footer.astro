@@ -3,6 +3,7 @@ import instagram from "../assets/instagram.png";
 import tiktok from "../assets/tiktok.png";
 import facebook from "../assets/facebooj.png";
 import puntoFooter from "../assets/puntofooter.svg";
+import "../styles/global.css";
 ---
 
 <footer class="footer">
@@ -21,13 +22,14 @@ import puntoFooter from "../assets/puntofooter.svg";
     <section class="footer__find">
       <h3>FIND US</h3>
 
-      <p>
+      <a>
         Sankt Hans Gade 9, kld. tv,<br />
         2200 København
-      </p>
+      </a>
 
-      <p>Punto@gmail.dk</p>
-      <p>+45 12 34 56 67</p>
+       <a> Tues - Fri 14 - 18</a>
+      <a> Sat - Sun 12 - 16</a>
+
     </section>
 
     <section class="footer__connect">
@@ -61,13 +63,16 @@ import puntoFooter from "../assets/puntofooter.svg";
           <img src={facebook.src} alt="Facebook" />
         </a>
       </div>
+       <a>Punto@gmail.dk</a>
+      <a>+45 12 34 56 67</a>
+
     </section>
 
     <section class="newsletter">
       <h3>DON’T MISS OUR NEWS AND EVENTS</h3>
 
       <form>
-        <input type="email" placeholder="EMAIL ADRESSE" />
+        <input type="email" placeholder="EMAIL ADRESS" />
         <button type="submit">TILMELD</button>
       </form>
     </section>
