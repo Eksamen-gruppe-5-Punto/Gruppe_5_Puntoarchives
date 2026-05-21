@@ -23,28 +23,35 @@ import Pcard from "../components/Pcard.astro";
       <h4>Elegance without excess</h4>
     </div>
   </section>
+<section class="gallery">
+  <article class="item item-1">
+    <div class="label"><span>01</span> SHOP BLAZERE</div>
+    <a href="/shop" class="image-frame">
+      <img src="/src/assets/01.png" alt="Shop blazere">
+    </a>
+  </article>
 
-  <section class="gallery">
-    <article class="item item-1">
-      <div class="label"><span>01</span> SHOP BLAZERE</div>
-      <a href="/shop" class="image-frame"></a>
-    </article>
+  <article class="item item-2">
+    <div class="label"><span>02</span> SHOP SUITS</div>
+    <a href="/suits" class="image-frame">
+      <img src="/src/assets/02.png" alt="Shop suits">
+    </a>
+  </article>
 
-    <article class="item item-2">
-      <div class="label"><span>02</span> SHOP SUITS</div>
-      <a href="/suits" class="image-frame"></a>
-    </article>
+  <article class="item item-3">
+    <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
+    <a href="/about" class="image-frame">
+      <img src="/src/assets/03.png" alt="Lookbook">
+    </a>
+  </article>
 
-    <article class="item item-3">
-      <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
-      <a href="/about" class="image-frame"></a>
-    </article>
-
-    <article class="item item-4">
-      <div class="label"><span>04</span> EVENTS</div>
-      <a href="/events" class="image-frame"></a>
-    </article>
-  </section>
+  <article class="item item-4">
+    <div class="label"><span>04</span> EVENTS</div>
+    <a href="/events" class="image-frame">
+      <img src="/src/assets/04.png" alt="Events">
+    </a>
+  </article>
+</section>
 
   <h4 class="scroll-more">SCROLL FOR MORE</h4>
 
@@ -118,108 +125,118 @@ import Pcard from "../components/Pcard.astro";
 
 
 <style>
-
 /* SECTION MED HERO OG BILLEDER */
-  .hero {
-    padding: 32px 20px 0;
-  }
+.hero {
+  padding: 32px 20px 0;
+}
 
-  .hero h1,
-  .hero h2 {
-    margin: 0;
-    margin-top: 40px;
-    font-size: 44px;
-    line-height: 1.08;
-    font-weight: 400;
-    letter-spacing: 0.88px;
-  }
+.hero h1,
+.hero h2 {
+  margin: 0;
+  margin-top: 40px;
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: 0.88px;
+}
 
-  .subtitle-left,
-  .hero-right h4 {
-    margin: 15px 0 0;
-    font-size: 16px;
-    font-weight: 100;
-  }
+.subtitle-left,
+.hero-right h4 {
+  margin: 15px 0 0;
+  font-size: 16px;
+  font-weight: 100;
+}
 
-  .hero-right,
-  .subtitle-left {
-    display: none;
-  }
+.hero-right,
+.subtitle-left {
+  display: none;
+}
 
-  .gallery {
-    width: 100%;
-    padding: 32px 20px;
-    box-sizing: border-box;
-  }
+.gallery {
+  width: 100%;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
 
-  .item {
-    margin-bottom: 36px;
-  }
+.item {
+  margin-bottom: 36px;
+}
 
-  .label {
-    margin-bottom: 8px;
-    font-size: 14px;
-    white-space: nowrap;
-  }
+.label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
 
-  .label span {
-    font-size: 25px;
-    margin-right: 6px;
-  }
+.label span {
+  font-size: 25px;
+  margin-right: 6px;
+}
 
-  .image-frame {
-    display: block;
-    background: #e2e2e2;
-    overflow: hidden;
-    transition: opacity 0.3s ease;
-  }
+.image-frame {
+  display: block;
+  background: #e2e2e2;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
 
-  .image-frame:hover {
-    opacity: 0.75;
-  }
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
-  .item-1 .image-frame {
-    width: 280px;
-    height: 310px;
-  }
+.item-3 .image-frame img {
+  object-position: center 20%;
+}
+.image-frame:hover {
+  opacity: 0.75;
+}
 
-  .item-2 {
-    margin-left: 155px;
-  }
+.item-1 .image-frame {
+  width: 280px;
+  height: 310px;
+}
 
-  .item-2 .image-frame {
-    width: 198px;
-    height: 180px;
-  }
+.item-2 {
+  margin-left: 155px;
+}
 
-  .item-3 {
-    margin-left: 0;
-  }
+.item-2 .image-frame {
+  width: 198px;
+  height: 180px;
+}
 
-  .item-3 .image-frame {
-    width: 280px;
-    height: 310px;
-  }
+.item-3 {
+  margin-left: 0;
+}
 
-  .item-4 {
-    margin-left: 155px;
-  }
+.item-3 .image-frame {
+  width: 280px;
+  height: 310px;
+}
 
-  .item-4 .image-frame {
-    width: 196px;
-    height: 152px;
-  }
+.item-4 {
+  margin-left: 155px;
+}
 
-  .scroll-more {
+.item-4 .image-frame {
+  width: 196px;
+  height: 152px;
+}
+
+.scroll-more {
   display: none;
 }
 
 .universe-frame:last-child {
   display: none;
 }
-  /*SECTION DISCOVER*/
 
-  .universe {
+/* SECTION DISCOVER */
+.universe {
   padding: 60px 20px;
 }
 
@@ -271,8 +288,7 @@ import Pcard from "../components/Pcard.astro";
   background: #e2e2e2;
 }
 
-/*VISION*/
-
+/* VISION */
 .vision {
   padding: 28px 20px 70px;
 }
@@ -296,105 +312,106 @@ import Pcard from "../components/Pcard.astro";
   gap: 56px;
   align-items: center;
 }
-  @media (min-width: 1280px) {
-   .hero {
-  display: flex;
-  justify-content: space-between;
-  padding: 55px 0 0;
-  margin-left: 57px;
-  width: calc(100% - 114px);
-}
 
-    .hero h1,
-    .hero h2 {
-      line-height: 0.95;
-      letter-spacing: 1.28px;
-    }
+/* DESKTOP */
+@media (min-width: 1280px) {
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 55px 0 0;
+    margin-left: 57px;
+    width: calc(100% - 114px);
+  }
 
-    .subtitle-left,
-    .hero-right {
-      display: block;
-    }
+  .hero h1,
+  .hero h2 {
+    line-height: 0.95;
+    letter-spacing: 1.28px;
+  }
 
-    .hero-right {
-      text-align: right;
-    }
+  .subtitle-left,
+  .hero-right {
+    display: block;
+  }
 
-    .hero-right h4 {
-      text-align: right;
-      margin-top: 15px;
-      font-weight: 100;
-    }
+  .hero-right {
+    text-align: right;
+  }
 
-    .gallery {
-      position: relative;
-      height: 610px;
-      margin-top: 20px;
-      margin-left: 57px;
-      padding: 0;
-    }
+  .hero-right h4 {
+    text-align: right;
+    margin-top: 15px;
+    font-weight: 100;
+  }
 
-    .item {
-      position: absolute;
-      margin-bottom: 0;
-      margin-left: 0;
-    }
+  .gallery {
+    position: relative;
+    height: 610px;
+    margin-top: 20px;
+    margin-left: 57px;
+    padding: 0;
+  }
 
-    .item-1 {
-      left: 0;
-      top: 0;
-    }
+  .item {
+    position: absolute;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
 
-    .item-1 .image-frame {
-      width: 340px;
-      height: 480px;
-    }
+  .item-1 {
+    left: 0;
+    top: 0;
+  }
 
-    .item-2 {
-  left: 390px;
-  top: 80px;
-}
+  .item-1 .image-frame {
+    width: 340px;
+    height: 480px;
+  }
 
-    .item-2 .image-frame {
-      width: 250px;
-      height: 320px;
-    }
+  .item-2 {
+    left: 390px;
+    top: 80px;
+  }
 
-    .item-3 {
-      left: 690px;
-      top: 40px;
-    }
+  .item-2 .image-frame {
+    width: 250px;
+    height: 320px;
+  }
 
-    .item-3 .image-frame {
-      width: 330px;
-      height: 400px;
-    }
+  .item-3 {
+    left: 690px;
+    top: 40px;
+  }
 
-    .item-4 {
-      left: 1080px;
-      top: 120px;
-    }
+  .item-3 .image-frame {
+    width: 330px;
+    height: 400px;
+  }
 
-    .item-4 .image-frame {
-      width: 240px;
-      height: 260px;
-    }
+  .item-4 {
+    left: 1080px;
+    top: 120px;
+  }
 
-   .scroll-more {
+  .item-4 .image-frame {
+    width: 240px;
+    height: 260px;
+  }
+
+  .scroll-more {
     margin-top: -100px;
     margin-bottom: 60px;
     text-align: center;
     font-weight: 100;
-      display: block;
-        transition: opacity 0.4s ease;
-
+    display: block;
+    transition: opacity 0.4s ease;
   }
-    .universe-frame:last-child {
+
+  .universe-frame:last-child {
     display: block;
   }
 
-
-  /*SECTION DISCOVER*/
+  /* SECTION DISCOVER */
   .universe {
     padding: 56px 57px 80px;
   }
@@ -415,15 +432,15 @@ import Pcard from "../components/Pcard.astro";
 
   .universe-images {
     grid-template-columns: 390px 390px 390px;
-  gap: 70px;
+    gap: 70px;
   }
 
   .universe-frame {
     height: 275px;
   }
 
-  /*VISION*/
-    .vision {
+  /* VISION */
+  .vision {
     padding: 45px 57px 100px;
   }
 
@@ -446,5 +463,4 @@ import Pcard from "../components/Pcard.astro";
     gap: 90px;
   }
 }
-  
 </style>
