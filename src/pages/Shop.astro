@@ -1,7 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import Filterbox from '../components/Filterbox.astro';
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Filterbox from "../components/Filterbox.astro";
+import Pcard from "../components/Pcard.astro";
+import Cardrack from "../components/Cardrack.astro";
 ---
 
 <Layout>
@@ -65,9 +67,9 @@ import Filterbox from '../components/Filterbox.astro';
       border: none;
       cursor: pointer;
       font-size: 16px;
-	  position: fixed;
-	  right: 0;
-	  padding-right: 40px;
+      position: fixed;
+      right: 0;
+      padding-right: 40px;
     }
   </style>
 
@@ -87,4 +89,10 @@ import Filterbox from '../components/Filterbox.astro';
 
 
 
+</Layout>
+  <main>
+    <Cardrack />
+    <Cardrack />
+    <Cardrack />
+  </main>
 </Layout>
