@@ -4,6 +4,8 @@ import Navigation from "../components/Navigation.astro";
 import Filterbox from "../components/Filterbox.astro";
 import Pcard from "../components/Pcard.astro";
 import Cardrack from "../components/Cardrack.astro";
+import Footer from '../components/Footer.astro';
+import Features from '../components/Features.astro';
 ---
 
 <Layout>
@@ -17,10 +19,15 @@ import Cardrack from "../components/Cardrack.astro";
     <Filterbox />
   </main>
 
-  <script is:inline>
+ <script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
     const openBtn = document.querySelector("#openFilter");
     const filterBox = document.querySelector("#filterBox");
     const closeBtn = document.querySelector("#closeFilter");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const resetButton = document.querySelector(".btn.reset-filter");
+
+    if (!openBtn || !filterBox || !closeBtn) return;
 
     openBtn.addEventListener("click", () => {
       filterBox.classList.add("is-open");
@@ -30,47 +37,45 @@ import Cardrack from "../components/Cardrack.astro";
       filterBox.classList.remove("is-open");
     });
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         button.classList.toggle("selected");
       });
     });
 
-    const resetButton = document.querySelector(".btn.reset-filter");
+    if (resetButton) {
+      resetButton.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    resetButton.addEventListener("click", (event) => {
-      event.preventDefault();
+        filterButtons.forEach((button) => {
+          button.classList.remove("selected");
+        });
 
-      filterButtons.forEach((button) => {
-        button.classList.remove("selected");
+        document.querySelectorAll(".checkbox-list input").forEach((checkbox) => {
+          checkbox.checked = false;
+        });
       });
+    }
+  });
+</script>
 
-      const checkboxes = document.querySelectorAll(".checkbox-list input");
-
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = false;
-      });
-    });
-  </script>
-
-  <style>
+ <style>
     .shop-page {
       padding: 120px 40px 40px;
     }
 
-    .filter-open-btn {
-      display: block;
-      margin-left: auto;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      position: fixed;
-      right: 0;
-      padding-right: 40px;
-    }
+.filter-open-btn {
+  position: sticky;
+  top: 100px;
+  right: 40px;
+  margin-left: auto;
+  display: block;
+  z-index: 2000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
   </style>
 
   <main>
@@ -78,4 +83,6 @@ import Cardrack from "../components/Cardrack.astro";
     <Cardrack />
     <Cardrack />
   </main>
+   <Features/>
+    <Footer />
 </Layout>
