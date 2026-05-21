@@ -7,6 +7,7 @@ import instagram from "../assets/instagram.png";
 import tiktok from "../assets/tiktok.png";
 import facebook from "../assets/facebooj.png";
 import Pcard from "../components/Pcard.astro";
+import "../styles/global.css";
 ---
 
 <Layout>
@@ -179,7 +180,6 @@ import Pcard from "../components/Pcard.astro";
   display: block;
   background: #e2e2e2;
   overflow: hidden;
-  transition: opacity 0.3s ease;
 }
 
 .image-frame img {
@@ -192,9 +192,6 @@ import Pcard from "../components/Pcard.astro";
 
 .item-3 .image-frame img {
   object-position: center 20%;
-}
-.image-frame:hover {
-  opacity: 0.75;
 }
 
 .item-1 .image-frame {
@@ -347,12 +344,14 @@ import Pcard from "../components/Pcard.astro";
   }
 
   .gallery {
-    position: relative;
-    height: 610px;
-    margin-top: 20px;
-    margin-left: 57px;
-    padding: 0;
-  }
+  position: relative;
+  height: 610px;
+  margin: 20px auto 0;
+  padding: 0;
+  max-width: 1320px;
+  width: calc(100% - 114px);
+  box-sizing: border-box;
+}
 
   .item {
     position: absolute;
@@ -432,14 +431,19 @@ import Pcard from "../components/Pcard.astro";
     font-weight: 100;
   }
 
-  .universe-images {
-    grid-template-columns: 390px 390px 390px;
-    gap: 70px;
-  }
+ .universe-images {
+  grid-template-columns: 440px 440px 440px;
+  gap: 40px;
+}
 
   .universe-frame {
     height: 275px;
   }
+  .universe-frame img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+}
 
   /* VISION */
   .vision {
