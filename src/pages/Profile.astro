@@ -2,62 +2,54 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout>
   <Navigation />
-  <section class="profile-page">
+<section class="login-container">
+  <div class="login-box">
+  
+    <h2>SIGN IN OR CREATE AN ACCOUNT</h2> 
+    
+    <form class="email-form">
+      <div class="input-group">
+        <input type="email" id="email" placeholder="EMAIL ADDRESS" required />
+      </div>
 
-    <h1>PROFILE</h1>
-    <section class="newsletter">
-<label for="email">
-      DON'T MISS NEWS AND EVENTS
-    </label>
+      <button type="submit" class="btn">CONTINUE</button>
+    </form>
 
-    <div class="newsletter-form">
-      <input
-        type="email"
-        id="email"
-        placeholder="EMAIL ADDRESS"
- >
+    <div class="divider">
+      <h3>CREATE WITH</h3>
+    </div>
 
-      <button type="submit">
-        SIGN UP
+    <p class="terms-text">
+      By continuing to log in, you consent to the linking of your account pursuant to our <a href="#">privacy policy.</a>
+    </p>
+
+    <div class="social-login">
+      <!-- Google-knap -->
+      <button type="button" class="btn">
+        <span class="icon google-color">G</span> CONTINUE WITH GOOGLE
+      </button>
+      
+      <!-- Apple-knap -->
+      <button type="button" class="btn">
+        <span class="icon"></span> CONTINUE WITH APPLE
       </button>
     </div>
-    </section>
-  </section>
 
-<Footer/>
+  </div>
+</section>
+
+
+  <Footer/>
   </Layout>
-  <style>
 
-.newsletter{
- width: 100vw;}
+<style>
 
-.profile-page{
-    padding: 40px;
-   
-    
-    }
-
-    .newsletter{
-      display:flex;
-  flex-direction:column;
-  gap:32px;
-}
-
-.newsletter label{
-  font-size:13px;
-  font-weight:700;
-}
-
-.newsletter-form{
-  display:flex;
-  border-bottom:1px solid black;
-}
-
-.newsletter input{
+.input-group input{
   flex:1;
 
   border:none;
@@ -69,29 +61,125 @@ import Footer from '../components/Footer.astro';
   font-size:13px;
 }
 
-.newsletter input::placeholder{
+.input-group input::placeholder{
   color:#bdbdbd;
 }
 
-.newsletter button{
-  border:1px solid black;
-
-  background:black;
-  color:white;
-
-  padding:12px 22px;
-
-  font-size:12px;
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:0.3s;
+.login-container {
+  width: 100vw;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
 }
 
-.newsletter button:hover{
-  background:white;
-  color:black;
+
+.login-box {
+  width: 100%;
+  max-width: 440px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.login-box h2 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 45px;
+  color: #000000;
+}
+
+.divider h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+/* Input-feltet med den tynde bundlinje */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  padding: 8px 0;
+
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "merriweather sans", sans-serif;
+
+  outline: none;
+  background: transparent;
+
+
+}
+
+.input-group input:focus {
+  border-bottom: 1px solid #000000;
+}
+
+
+.btn {
+  width: 100%;
+  height: 48px;
+  background: transparent;
+  border: 1px solid #000000;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  transition: background-color 0.15s ease;
+
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "merriweather sans", sans-serif;
+  
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+.icon {
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+}
+.btn:hover .google-color {
+  color: #ffffff;
+}
+
+.google-color {
+  color: #000000;
+  font-weight: bold;
+}
+
+.terms-text {
+  font-size: 14px;
+    font-weight: 300;
+    font-family: "merriweather sans", sans-serif;
+    
+  line-height: 1.5;
+  color: #000000;
+  margin-bottom: 35px;
+}
+
+.terms-text a {
+  color: #000000;
+  text-decoration: underline;
 }
 
 </style>
