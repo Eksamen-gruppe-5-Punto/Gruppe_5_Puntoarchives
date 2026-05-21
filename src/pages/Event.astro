@@ -32,11 +32,12 @@ An outdoor evening with food, fashion, music and creative conversations bringing
 
 <Layout>
   <Navigation />
+
   <section class="event-page">
 
     <section class="hero-section">
       <div>
-        <h1>PUNTO EVENTS</h1>
+        <h2>PUNTO EVENTS</h2>
 		<p class="intro-text">
   Get inspired by <br> timeless tailoring.
 </p>
@@ -55,6 +56,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
         </p>
       </section>
     </section>
+
 <section class="upcoming">
   <h2>UPCOMING <br /> EVENTS</h2>
 
@@ -86,12 +88,11 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     box-sizing: border-box;
   }
 
-  .event-page {
-    padding: 20px;
-  }
+ .event-page {
+  padding: 32px 20px 0;
+}
 
  h1 {
-  font-size: 44px;
   font-weight: 400;
   letter-spacing: 0.88px;
   margin-bottom: 24px;
@@ -178,21 +179,20 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   }
 
   @media (min-width: 1280px) {
-  .event-page {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 5px 40px 120px;
-  }
+ .event-page {
+  width: calc(100% - 114px);
+  margin-left: 57px;
+  padding: 55px 0 120px;
+}
 
-  .hero-section {
-    display: grid;
-    grid-template-columns: 715px 360px;
-    gap: 44px;
-    align-items: start;
-  }
+ .hero-section {
+  display: grid;
+  grid-template-columns: 820px 360px;
+  gap: 90px;
+  align-items: start;
+}
 
-  h1 {
-    font-size: 64px;
+  h2 {
     margin-bottom: 12px;
   }
     .intro-text {
@@ -206,18 +206,19 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   .hero-video {
     width: 715px;
     max-width: none;
-    height: 474px;
+    height: 500px;
     margin-bottom: 0;
+     width: 850px;
   }
 
   .discover-section {
     margin-top: 112px;
     margin-bottom: 0;
-	margin-top: 60%;
+    margin-top: 50%;
   }
 
   .discover-section h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .upcoming {
@@ -262,8 +263,10 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   .event-info {
     grid-column: 2;
     grid-row: 2;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 25px;
+    justify-content: center;
+    
   }
 }
 </style>
