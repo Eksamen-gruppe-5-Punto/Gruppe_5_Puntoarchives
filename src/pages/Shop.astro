@@ -2,24 +2,40 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Filterbox from "../components/Filterbox.astro";
-import Pcard from "../components/Pcard.astro";
 import Cardrack from "../components/Cardrack.astro";
-import Footer from '../components/Footer.astro';
-import Features from '../components/Features.astro';
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
   <Navigation />
 
   <main class="shop-page">
+    <section class="shop-hero">
+      <h2>SHOP</h2>
+    </section>
+
     <button class="filter-open-btn" id="openFilter" type="button">
       FILTER
     </button>
 
     <Filterbox />
+
+    <h4 class="shop-quote">
+      “Our products are handpicked by<br />
+      our own curator in Italy” - PUNTO
+    </h4>
   </main>
 
- <script is:inline>
+  <main class="shop-racks">
+    <Cardrack />
+    <Cardrack />
+    <Cardrack />
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const openBtn = document.querySelector("#openFilter");
     const filterBox = document.querySelector("#filterBox");
@@ -59,31 +75,72 @@ import Features from '../components/Features.astro';
   });
 </script>
 
-    <style>
-    .shop-page {
-      padding: 120px 40px 40px;
-    }
+<style>
+  .shop-page {
+    padding: 32px 20px 40px;
+  }
 
-.filter-open-btn {
-  position: sticky;
-  top: 100px;
-  right: 40px;
-  margin-left: auto;
-  display: block;
-  z-index: 2000;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-  </style>
+  .shop-hero h2 {
+    margin-top: 40px;
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: 0.88px;
+  }
 
-</Layout>
-  <main>
-    <Cardrack />
-    <Cardrack />
-    <Cardrack />
-  </main>
+  .filter-open-btn {
+    position: sticky;
+    top: 100px;
+    margin-left: auto;
+    display: block;
+    z-index: 2000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
 
-    <Footer />
-</Layout>
+  .shop-quote {
+    display: none;
+  }
+
+  .shop-racks {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+@media (min-width: 1280px) {
+  .shop-page {
+    position: relative;
+
+    width: calc(100% - 114px);
+    margin-left: 57px;
+
+    padding: 55px 0 0;
+  }
+
+  .shop-hero h2 {
+    margin-top: 40px;
+  }
+
+  .shop-quote {
+    display: block;
+
+    position: absolute;
+
+    left: 38%;
+    top: 250px;
+
+    max-width: 430px;
+
+    font-size: 20px;
+    line-height: 1.15;
+
+    font-style: italic;
+    font-weight: 100;
+  }
+
+  .shop-racks {
+    margin-top: -20px;
+    gap: 0;
+  }
+</style>
