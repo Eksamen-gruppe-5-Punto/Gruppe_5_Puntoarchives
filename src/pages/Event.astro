@@ -1,26 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
 import eventImage from '../assets/111.png';
+import eventImage2 from '../assets/event1.png';
+import eventImage3 from '../assets/event3.png';
+
 import eventVideo from '../assets/0521.mp4';
+
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
 const events = [
   {
+    image: eventImage2,
     date: "30 Maj",
     time: "19:00 - 00:00",
     info: `Sankt Hans Gade 2, 2200, kbh N
 Release party
 Join us for an evening celebrating friends, music and the newest EP release with drinks, live performances and community atmosphere`
   },
+
   {
+    image: eventImage,
     date: "12 Juni",
     time: "20:00 - 02:00",
     info: `Studiestræde 44, København
 DJ night
 Live DJ sets and cocktails all night`
   },
+
   {
+    image: eventImage3,
     date: "25 Juli",
     time: "18:00 - 23:00",
     info: `Refshaleøen, København
@@ -42,7 +52,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   Get inspired by <br> timeless tailoring.
 </p>
 
-        <video class="hero-video" autoplay muted loop playsinline controls>
+   <video class="hero-video" autoplay muted loop playsinline>
           <source src={eventVideo} type="video/mp4" />
         </video>
       </div>
@@ -64,7 +74,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     <article class="event-card">
       <div class="line"></div>
 
-      <img src={eventImage.src} alt="Event image" />
+      <img src={event.image.src} alt="Event image" />
 
       <div class="event-meta">
         <h3>{event.date}</h3>
@@ -76,7 +86,6 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   ))}
 
   <div class="line"></div>
-
 </section>
 
   </section>
@@ -120,6 +129,10 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     margin-bottom: 12px;
   }
 
+   h2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
   .line {
     width: 100%;
     height: 1px;

@@ -91,8 +91,9 @@ import "../styles/global.css";
 
   <div class="universe-images">
     
-    <img src="src/assets/magazine.jpg" alt="Vintage magazine" class="universe-img item-magazine">
+
     <img src="src/assets/personsuit.jpg" alt="a suit" class="universe-img item-person">
+        <img src="src/assets/magazine.jpg" alt="Vintage magazine" class="universe-img item-magazine">
     <img src="src/assets/plaidjacket.jpg" alt="plaid jacket" class="universe-img item-jacket">
  
   </div>
@@ -286,6 +287,15 @@ import "../styles/global.css";
   height: 275px;
   background: #e2e2e2;
 }
+.universe-img {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+  display: block;
+}
+.item-jacket {
+  display: none;
+}
 
 /* VISION */
 .vision {
@@ -412,39 +422,40 @@ import "../styles/global.css";
     display: block;
   }
 
-  /* SECTION DISCOVER */
-  .universe {
-    padding: 56px 57px 80px;
-  }
-
-  .universe h2 {
-    font-size: 64px;
-  }
-
-  .universe-line {
-    width: 698px;
-  }
-
-  .universe p {
-    margin-bottom: 22px;
-    width: 80%;
-    font-weight: 100;
-  }
-
- .universe-images {
-  grid-template-columns: 440px 440px 440px;
-  gap: 40px;
+/* SECTION DISCOVER */
+.universe {
+  padding: 56px 57px 80px;
 }
 
-  .universe-frame {
-    height: 275px;
-  }
-  .universe-frame img {
-  width: 110%;
-  height: 100%;
+.universe h2 {
+  font-size: 64px;
+}
+
+.universe-line {
+  width: 698px;
+}
+
+.universe p {
+  margin-bottom: 22px;
+  width: 80%;
+  font-weight: 100;
+}
+
+.universe-images {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 55px;
+}
+
+.universe-img {
+  width: 400px;
+  height: 275px;
+
   object-fit: cover;
-}
+  object-position: center;
 
+  display: block;
+}
   /* VISION */
   .vision {
     padding: 45px 57px 100px;

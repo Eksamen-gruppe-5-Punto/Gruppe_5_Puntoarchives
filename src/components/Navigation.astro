@@ -18,10 +18,35 @@ import Cartbox from "../components/Cartbox.astro";
     <div class="dropdown" id="menuDropdown" role="menu" aria-hidden="true">
       <!-- LEFT: your existing links (kept in same place) -->
       <div class="dropdown-left" aria-label="Main menu">
-        <a href="/Shop" role="menuitem" tabindex="-1">SHOP <span class="arrow"> > </span></a>
-        <a href="/Aboutlookbook" role="menuitem" tabindex="-1">ABOUT US & LOOKBOOK <span class="arrow"> > </span></a>
-        <a href="/Event" role="menuitem" tabindex="-1">EVENTS <span class="arrow"> > </span></a>
-      </div>
+
+  <a href="/" role="menuitem" tabindex="-1">
+    HOME <span class="arrow"> 〉 </span>
+  </a>
+
+  <a
+    href="/Shop"
+    role="menuitem"
+    tabindex="-1"
+    id="shopToggle"
+  >
+    SHOP <span class="arrow"> 〉</span>
+  </a>
+
+  <div class="shop-submenu" id="shopSubmenu">
+    <a href="/Shop">SHOP ALL</a>
+    <a href="/Shop/blazere">BLAZERE</a>
+    <a href="/Shop/suits">SUITS</a>
+  </div>
+
+  <a href="/Aboutlookbook" role="menuitem" tabindex="-1">
+    ABOUT US & LOOKBOOK <span class="arrow"> 〉 </span>
+  </a>
+
+  <a href="/Event" role="menuitem" tabindex="-1">
+    EVENTS <span class="arrow"> 〉 </span>
+  </a>
+
+</div>
 
       <!-- RIGHT: two news items -->
       <div class="dropdown-right" aria-label="News">
@@ -30,7 +55,7 @@ import Cartbox from "../components/Cartbox.astro";
             <span class="news-number">01</span>
             <span class="news-label">NEWS</span>
           </div>
-          <img class="news-image" src="src/assets/suitpaastol.jpg" alt="News 01" loading="lazy" />
+           <img class="news-image" src="src/assets/suitpaastol.jpg" alt="News 01" loading="lazy" />
         </a>
 
         <a class="news-card" href="/news/02">
@@ -38,7 +63,7 @@ import Cartbox from "../components/Cartbox.astro";
             <span class="news-number">02</span>
             <span class="news-label">NEWS</span>
           </div>
-          <img class="news-image" src="src/assets/kaareogida.jpg" alt="News 02" loading="lazy" />
+           <img class="news-image" src="src/assets/kaareogida.jpg" alt="News 02" loading="lazy" />
         </a>
       </div>
     </div>
@@ -68,282 +93,474 @@ import Cartbox from "../components/Cartbox.astro";
     --header-height: 72px;
   }
 
+  /* HEADER */
+
   .header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: start;
+
     padding: 20px 16px;
 
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2000; /* make sure header is always above dropdown */
 
-    /* IMPORTANT: no white bar on homepage */
+    z-index: 3000;
+
     background: #fff;
   }
 
-  /* When menu is open, header can be white (optional) */
   .header.menu-open {
     background: #fff;
   }
 
+  /* MENU + LINKS + BAG */
+
   .menu-btn,
   nav a,
-  .bag-btn  {
+  .bag-btn {
     background: none;
     border: none;
-    padding: 0;
+
+    padding: 0 0 4px;
+
     cursor: pointer;
+
     font-size: 16px;
     line-height: 1;
+
     color: black;
-    font-family: inherit; /* HUSK AT ÆNDRE FONT */
+
+    font-family: "Bodoni 72", serif;
+
     text-decoration: none;
+
     justify-self: start;
-    
-    /* Gør det muligt at placere stregen præcist under teksten */
+
     position: relative;
-    padding-bottom: 4px; 
   }
 
- /* MENU + LINKS + BAG */
   .menu-btn::after,
   nav a::after,
-   .bag-btn::after {
+  .bag-btn::after {
     content: '';
+
     position: absolute;
+
     bottom: 0;
     left: 0;
+
     width: 100%;
-    height: 1px; 
+    height: 1px;
+
     background-color: black;
-    
-    /* noget af hover effekten*/
+
     transform: scaleX(0);
-    transform-origin: center; 
-    transition: transform 0.3s ease; 
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
   }
 
-  
   .menu-btn:hover::after,
-  nav a:hover::after,  
+  nav a:hover::after,
   .bag-btn:hover::after {
     transform: scaleX(1);
   }
+
+  /* LOGO */
 
   .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     text-decoration: none;
+
     color: black;
   }
 
   .logo span {
     font-size: 16px;
     line-height: 1;
+
+    font-family: "Playfair Display", serif;
   }
 
   .dot {
     width: 5px;
     height: 5px;
-    border-radius: 999px;  /* gør at cirkelen forbliver sig rundt selvom skriftstørrelsen bliver ædnret */
+
+    border-radius: 999px;
+
     background: black;
+
     margin-top: 6px;
   }
 
   nav {
     display: flex;
     gap: 16px;
+
     justify-self: end;
   }
 
-  
   .menu {
     position: relative;
     display: inline-block;
+
     justify-self: start;
   }
 
-  /* Dropdown styling (hidden by default) */
-  .dropdown {
-    position: fixed;
-    left: 0;
-    top: var(--header-height);
+  /* MOBILE FIRST DROPDOWN */
+.dropdown {
+  position: fixed;
 
-    width: 100vw;
-    height: 50vh;
-    background: #ffffff;
+  left: 0;
+  top: var(--header-height);
 
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-16px);
-    transition: opacity 0.18s ease, transform 0.22s ease, visibility 0s linear 0.22s;
-    pointer-events: none;
+  width: 100%;
+   min-height: unset;
 
-    z-index: 1000;
-    padding: 48px;
+ height: calc(100dvh - var(--header-height));
 
-    /* NEW: 2-column layout */
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 48px;
-    align-items: start;
-  }
+  box-sizing: border-box;
+
+  background: #fff;
+
+  visibility: hidden;
+  opacity: 0;
+   padding-bottom: 140px;
+
+  transform: translateY(-16px);
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s ease,
+    visibility 0s linear 0.22s;
+
+  pointer-events: none;
+
+  z-index: 1000;
+
+  padding: 48px 24px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 56px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  
+}
 
   .dropdown.open {
     visibility: visible;
     opacity: 1;
+
     transform: translateY(0);
-    transition: opacity 0.18s ease, transform 0.22s ease;
+
+    transition:
+      opacity 0.18s ease,
+      transform 0.22s ease;
+
     pointer-events: auto;
   }
 
-  /* LEFT links: keep vertical stacking and same look */
+  /* LEFT SIDE */
+
   .dropdown-left {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+
+    gap: 34px;
+
     align-items: flex-start;
+
+    position: relative;
   }
 
-  /* (your existing .dropdown a styles stay, but now apply to both sides)
-     Limit underline effect to JUST the left menu links: */
   .dropdown-left a {
-    padding: 0;
-    font-size: 18px;
-    letter-spacing: 0.02em;
+    padding: 0 0 6px;
+
+    font-size: 16px;
+
+    font-family: "Bodoni 72", serif;
+
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    margin: 0;
+
+    gap: 14px;
+
     color: black;
+
     text-decoration: none;
+
     position: relative;
-    padding-bottom: 6px;
+
     width: fit-content;
   }
 
-  .dropdown-left a::after {
+  .dropdown-left a::after,
+  .shop-submenu a::after {
     content: '';
+
     position: absolute;
+
     left: 0;
     bottom: 0;
+
     width: 100%;
     height: 1px;
+
     background: black;
+
     transform: scaleX(0);
     transform-origin: center;
+
     transition: transform 0.3s ease;
   }
 
   .dropdown-left a:hover::after,
-  .dropdown-left a:focus-visible::after {
+  .dropdown-left a:focus-visible::after,
+  .shop-submenu a:hover::after,
+  .shop-submenu a:focus-visible::after {
     transform: scaleX(1);
   }
 
-  /* RIGHT: news grid */
-  .dropdown-right {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(180px, 1fr));
-    gap: 28px;
-    justify-content: end;
-    align-items: start;
+  /* SHOP SUBMENU */
+
+  .shop-submenu {
+    position: static;
+
+    display: none;
+    flex-direction: column;
+
+    margin-left: 28px;
+    margin-top: -12px;
+
+    gap: 16px;
   }
 
-  .news-card {
-    display: block;
+  .shop-submenu.open {
+    display: flex;
+  }
+
+  .shop-submenu a {
+    font-size: 14px;
+
+    font-family: "Bodoni 72", serif;
+
+    color: black;
+
     text-decoration: none;
+
+    position: relative;
+
+    width: fit-content;
+
+    padding-bottom: 6px;
+  }
+
+  .arrow {
+    margin-left: 10px;
+  }
+
+  /* RIGHT SIDE */
+
+ .dropdown-right {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+    padding-bottom: 80px;
+}
+
+  .news-card {
+    width: 100%;
+    max-width: 100%;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
     color: black;
   }
 
   .news-meta {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    margin-bottom: 12px;
+
+    gap: 2px;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-family: "Bodoni 72", serif;
   }
 
   .news-number {
     font-size: 22px;
-    letter-spacing: 0.02em;
+     padding-right: 5px;
   }
-
   .news-label {
-    font-size: 12px;
-    letter-spacing: 0.12em;
+    font-size: 16px;
   }
-
-  /* MOBIL */
-.news-image {
-  
-  max-width: 450px;
-  height: 320px;
-  display: block;
-  background: #f3f3f3;
+  .news-image {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 320 / 230;
   object-fit: cover;
-  transition: opacity 0.3s ease;
+  display: block;
 }
 
-  /* Optional hover: slight zoom */
+  .news-card:first-child .news-image {
+    object-position: center 40%;
+  }
+
+  .news-card:nth-child(2) .news-image {
+    object-position: center;
+  }
+
   .news-card:hover .news-image,
   .news-card:focus-visible .news-image {
     transform: scale(1.02);
   }
-  .news-image {
-    transition: transform 0.25s ease;
+
+  /* BACKDROP */
+
+  .menu-backdrop {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    top: var(--header-height);
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      opacity 0.18s ease,
+      visibility 0s linear 0.18s;
+
+    pointer-events: none;
+
+    z-index: 900;
   }
-  .dropdown {
-      grid-template-columns: 1fr;
-      height: auto;
-      max-height: calc(100vh - var(--header-height));
-      overflow: auto;
-    }
-    .dropdown-right {
-      grid-template-columns: 1fr;
-    }
-    .news-image {
-      height: 240px;
-      
-    }
-  
 
+  .menu-backdrop.open {
+    opacity: 1;
+    visibility: visible;
 
-  /* Responsive: stack news under links */
-  @media (max-width: 1280px) {
-  
+    transition: opacity 0.18s ease;
+
+    pointer-events: auto;
+  }
+
+  /* TABLET */
+
+  @media (min-width: 900px) {
+
+    .dropdown {
+      padding: 55px 60px;
+    }
+
+    .dropdown-left a {
+      font-size: 18px;
+    }
+  }
 
   /* DESKTOP */
 
+  @media (min-width: 1280px) {
 
     .header {
-      padding: 20px 16px;
+      padding: 36px 60px 15px;
     }
 
     .menu-btn,
-    nav a,  .bag-btn {
-      font-size: 20px;
+    nav a,
+    .bag-btn {
+      font-size: 22px;
     }
 
     .logo span {
-      font-size: 20px;
-    }
-
-    .dot {
-       width: 5px;
-    height: 5px;
-    border-radius: 999px;  /* gør at cirkelen forbliver sig rundt selvom skriftstørrelsen bliver ædnret */
-    background: black;
-    margin-top: 6px;
+      font-size: 22px;
     }
 
     nav {
       gap: 48px;
     }
 
-   
+    .dropdown {
+    width: 100vw;
+    height: 490px;
+    overflow: visible;
+
+      min-height: unset;
+
+      padding: 55px 60px 0;
+
+      grid-template-columns: 560px 532px;
+      align-items: start;
+      gap: 68px;
+
+      overflow: visible;
+    }
+
+    .dropdown-left a {
+      font-size: 22px;
+    }
+
+    .news-number {
+    font-size: 22px;
+    padding-right: 5px;
+  }
+  .news-label {
+    font-size: 14px;
+  }
+
+    .dropdown-right {
+      display: grid;
+
+      grid-template-columns: 260px 260px;
+
+      gap: 40px;
+
+      justify-content: start;
+
+      margin-left: 120px;
+      
+    }
+
+     .news-image {
+    width: 260px;
+    height: 370px;
+    max-width: none;
+    aspect-ratio: auto;
+    
+  }
+
+    .shop-submenu {
+      position: absolute;
+      left: 420px;
+      top: 5px;
+
+      margin-left: 0;
+      margin-top: 0;
+
+      gap: 22px;
+    }
   }
 
   .menu-backdrop {
@@ -372,9 +589,6 @@ import Cartbox from "../components/Cartbox.astro";
     transition: opacity 0.18s ease;
     pointer-events: auto; 
   }
-
-
-   
 </style>
 
 <script type="module">
@@ -448,4 +662,12 @@ import Cartbox from "../components/Cartbox.astro";
     cartBox?.classList.remove("is-open");
   });
 
+const shopToggle = document.getElementById('shopToggle');
+const shopSubmenu = document.getElementById('shopSubmenu');
+
+shopToggle?.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  shopSubmenu?.classList.toggle('open');
+});
 </script>
