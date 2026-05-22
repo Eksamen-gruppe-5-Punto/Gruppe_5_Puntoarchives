@@ -1,10 +1,423 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
 <Layout>
-<Navigation />
-	<h2>Forside About/lookbook</h2>
+  <Navigation />
+
+  <section class="lookbook-page">
+  <h1>ABOUT US & LOOKBOOK</h1>
+
+  <img
+    class="small-frame img-1"
+    src="/src/assets/img-1.png"
+    alt="Lookbook image"
+  />
+
+  <p class="caption caption-1">
+    From our 2026 Collection campaign at Soho House in Copenhagen.
+  </p>
+
+  <img
+    class="large-frame img-2 offset-right"
+    src="/src/assets/img-2.png"
+    alt="Lookbook image"
+  />
+
+  <p class="body-text body-1">
+    PUNTO ARCHIVES explores the space between memory and material — a curated
+    selection of garments shaped by texture, silhouette, and time. Each piece is
+    chosen for its character and longevity, blending archival influence with a
+    contemporary point of view. Rooted in understated design and thoughtful
+    curation, the collection reflects an appreciation for clothing that feels
+    both lived-in and lasting.
+  </p>
+
+  <img
+    class="wide-frame img-3"
+    src="/src/assets/img-3.png"
+    alt="Lookbook image"
+  />
+
+  <img
+    class="small-frame img-4 right"
+    src="/src/assets/img-4.png"
+    alt="Lookbook image"
+  />
+
+  <p class="caption caption-2 right-text">
+    Founder “Johan Wandler” having fun with the camera
+  </p>
+
+  <h2>“TAILORING WORTH NOTICING”</h2>
+
+  <img
+    class="wide-frame img-5"
+    src="/src/assets/img-5.png"
+    alt="Lookbook image"
+  />
+
+  <img
+    class="small-frame img-6 right"
+    src="/src/assets/img-6.png"
+    alt="Lookbook image"
+  />
+
+  <p class="caption caption-3 right-text">
+    Copenhagen-based vintage fashion project.
+  </p>
+
+  <img
+    class="large-frame img-7"
+    src="/src/assets/img-7.png"
+    alt="Lookbook image"
+  />
+
+  <h2 class="lookbook-title">LOOKBOOK</h2>
+
+  <p class="body-text body-2 short">
+    The lookbook reflects a few of our favorite pictures and moments taken at
+    Soho House in Copenhagen for our 2026 campaign.
+  </p>
+
+  <img
+    class="wide-frame img-8"
+    src="/src/assets/img-8.png"
+    alt="Lookbook image"
+  />
+
+  <div class="bottom-row">
+    <img
+      class="small-frame img-9"
+      src="/src/assets/img-9.png"
+      alt="Lookbook image"
+    />
+
+    <span class="page-number">03</span>
+  </div>
+</section>
+ <Footer />
 </Layout>
+
+<style>
+  .lookbook-page {
+    padding: 40px 20px 80px;
+    background: white;
+    color: black;
+  }
+
+  h1,
+  h2 {
+    font-family: "Bodoni 72", serif;
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.88px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    max-width: 255px;
+  }
+
+  h2 {
+    max-width: 280px;
+    margin-top: 70px;
+  }
+
+  .lookbook-title {
+    margin-top: 40px;
+  }
+
+  .caption,
+  .body-text {
+    font-family: "Merriweather", serif;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.28px;
+  }
+
+  .caption {
+    max-width: 180px;
+    margin: 12px 0 48px;
+  }
+
+  .body-text {
+    max-width: 353px;
+    margin: 24px 0 48px;
+  }
+
+  .short {
+    max-width: 288px;
+  }
+
+  .small-frame,
+  .large-frame,
+  .wide-frame {
+    background: #e2e2e2;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+  }
+
+  .small-frame {
+    width: 177px;
+    height: 170px;
+  }
+
+  .large-frame {
+    width: min(299px, 100%);
+    height: 496px;
+    margin: 48px 0;
+  }
+
+  .wide-frame {
+    width: 100%;
+    height: 203px;
+    margin: 48px 0 16px;
+  }
+
+  .offset-right {
+    margin-left: auto;
+  }
+
+  .right {
+    margin-left: auto;
+  }
+
+  .right-text {
+    margin-left: auto;
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+
+  .page-number {
+    font-family: "Playfair Display", serif;
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {
+    .lookbook-page {
+      max-width: 430px;
+      margin: 0 auto;
+    }
+  }
+
+ @media (min-width: 1280px) {
+  .lookbook-page {
+    width: calc(100% - 114px);
+    max-width: 1320px;
+    height: 3600px;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  h1,
+  h2,
+  .lookbook-title,
+  .small-frame,
+  .large-frame,
+  .wide-frame,
+  .caption,
+  .body-text,
+  .bottom-row {
+    position: absolute;
+    margin: 0;
+  }
+
+  h1 {
+    left: 7px;
+    top: 133px;
+    letter-spacing: 1.28px;
+    max-width: none;
+  }
+
+  h2 {
+    left: 164px;
+    top: 1650px;
+    font-size: 64px;
+    letter-spacing: 1.28px;
+    max-width: none;
+	margin-top: 40px;
+  }
+
+  .lookbook-title {
+    left: 690px;
+    top: 2975px;
+    font-size: 64px;
+    letter-spacing: 1.28px;
+    max-width: none;
+  }
+
+  /* DEFAULT SIZES */
+  .small-frame {
+    width: 277px;
+    height: 281px;
+  }
+
+  .large-frame {
+    width: 570px;
+    height: 778px;
+  }
+
+  .wide-frame {
+    width: 537px;
+    height: 281px;
+  }
+
+  /* TOP LEFT */
+  .img-1 {
+    left: 0;
+    top: 297px;
+
+    width: 340px;
+    height: 360px;
+  }
+
+  .caption-1 {
+    left: 0;
+    top: 680px;
+
+    width: 288px;
+    max-width: 288px;
+  }
+
+  /* TOP RIGHT */
+  .img-2 {
+    right: 0;
+    top: 297px;
+
+    width: 640px;
+    height: 820px;
+  }
+
+  .body-1 {
+    left: 360px;
+    top: 910px;
+
+    width: 288px;
+    max-width: 288px;
+  }
+
+  /* MIDDLE */
+  .img-3 {
+    left: 0;
+    top: 1260px;
+
+    width: 620px;
+    height: 330px;
+  }
+
+  .img-4 {
+    right: 300px;
+    top: 1260px;
+
+    width: 320px;
+    height: 330px;
+  }
+
+  .caption-2 {
+    left: 0;
+    top: 1610px;
+
+    width: 382px;
+    max-width: 382px;
+  }
+
+  /* HERO IMAGE */
+  .img-5 {
+    left: 0;
+    top: 1760px;
+
+    width: 100%;
+    height: 460px;
+	margin-top: 40px;
+  }
+
+  /* LOWER SECTION */
+  .img-7 {
+    left: 0;
+    top: 2300px;
+
+    width: 640px;
+    height: 860px;
+  }
+
+  .img-6 {
+    right: 0;
+    top: 2300px;
+
+    width: 340px;
+    height: 360px;
+  }
+
+  .caption-3 {
+    right: 0;
+    top: 2680px;
+
+    width: 288px;
+    max-width: 288px;
+
+    font-family: "Bodoni 72", serif;
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  /* LOOKBOOK TEXT */
+  .body-2 {
+    left: 690px;
+    top: 3050px;
+
+    width: 288px;
+    max-width: 288px;
+  }
+
+  /* BOTTOM */
+  .img-8 {
+    right: 0;
+    top: 3200px;
+
+    width: 620px;
+    height: 330px;
+	margin-top: 40px;
+  }
+
+  .bottom-row {
+    left: 330px;
+    top: 3200px;
+
+    display: block;
+
+    width: 320px;
+    height: 330px;
+  }
+
+  .bottom-row .img-9 {
+    position: static;
+
+    width: 320px;
+    height: 330px;
+	margin-top: 40px;
+  }
+
+  .page-number {
+    position: absolute;
+    left: -260px;
+    top: 230px;
+
+    font-size: 70px;
+  }
+}
+</style>
