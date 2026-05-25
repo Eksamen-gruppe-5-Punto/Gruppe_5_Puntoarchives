@@ -3,15 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Features from "../components/Features.astro";
-import instagram from "../assets/instagram.png";
-import tiktok from "../assets/tiktok.png";
-import facebook from "../assets/facebooj.png";
 import Pcard from "../components/Pcard.astro";
 import "../styles/global.css";
+
+import instagram from "../assets/instagram.webp";
+import tiktok from "../assets/tiktok.webp";
+import facebook from "../assets/facebooj.webp";
+
 import img01 from "../assets/01.webp";
-import img02 from "../assets/02.png";
-import img03 from "../assets/03.png";
-import img04 from "../assets/04.png";
+import img02 from "../assets/02.webp";
+import img03 from "../assets/03.webp";
+import img04 from "../assets/04.webp";
+
+import personsuit from "../assets/personsuit.webp";
+import magazine from "../assets/magazine.webp";
+import plaidjacket from "../assets/plaidjacket.webp";
 ---
 
 <Layout>
@@ -28,9 +34,11 @@ import img04 from "../assets/04.png";
       <h4>Elegance without excess</h4>
     </div>
   </section>
+
   <section class="gallery">
     <article class="item item-1">
       <div class="label"><span>01</span> SHOP BLAZERE</div>
+
       <a href="/Shop" class="image-frame">
         <img src={img01.src} alt="Shop blazere" />
       </a>
@@ -38,6 +46,7 @@ import img04 from "../assets/04.png";
 
     <article class="item item-2">
       <div class="label"><span>02</span> SHOP SUITS</div>
+
       <a href="/Shop" class="image-frame">
         <img src={img02.src} alt="Shop suits" />
       </a>
@@ -45,6 +54,7 @@ import img04 from "../assets/04.png";
 
     <article class="item item-3">
       <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
+
       <a href="/Aboutlookbook" class="image-frame">
         <img src={img03.src} alt="Lookbook" />
       </a>
@@ -52,6 +62,7 @@ import img04 from "../assets/04.png";
 
     <article class="item item-4">
       <div class="label"><span>04</span> EVENTS</div>
+
       <a href="/Event" class="image-frame">
         <img src={img04.src} alt="Events" />
       </a>
@@ -62,6 +73,7 @@ import img04 from "../assets/04.png";
 
   <section class="universe">
     <h1>OUR UNIVERSE</h1>
+
     <div class="universe-line"></div>
 
     <p>
@@ -71,8 +83,8 @@ import img04 from "../assets/04.png";
       craftsmanship, and ability to exist effortlessly between past and present.
       <br /><br />
       To experience the full world of Punto Archives, explore our social platforms
-      where the collection comes to life through editorials, styling videos, behind-the-scenes
-      moments, and daily archival finds.
+      where the collection comes to life through editorials, styling videos,
+      behind-the-scenes moments, and daily archival finds.
       <br />
       Stay connected with the evolving universe of Punto Archives.
       <br /><br />
@@ -98,17 +110,19 @@ import img04 from "../assets/04.png";
 
     <div class="universe-images">
       <img
-        src="src/assets/personsuit.jpg"
+        src={personsuit.src}
         alt="a suit"
         class="universe-img item-person"
       />
+
       <img
-        src="src/assets/magazine.jpg"
+        src={magazine.src}
         alt="Vintage magazine"
         class="universe-img item-magazine"
       />
+
       <img
-        src="src/assets/plaidjacket.jpg"
+        src={plaidjacket.src}
         alt="plaid jacket"
         class="universe-img item-jacket"
       />
@@ -138,10 +152,10 @@ import img04 from "../assets/04.png";
       <Pcard />
     </div>
   </section>
+
   <Features />
   <Footer />
 </Layout>
-
 <style>
   /* SECTION MED HERO OG BILLEDER */
   .hero {

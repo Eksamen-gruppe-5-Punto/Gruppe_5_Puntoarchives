@@ -1,7 +1,9 @@
 ---
-/* IMPORT CARTBOX COMPONENT */
 import Cartbox from "../components/Cartbox.astro";
+import suitpaastol from "../assets/suitpaastol.webp";
+import kaareogida from "../assets/kaareogida.webp";
 ---
+
 <header class="header" id="siteHeader">
   <div class="menu">
     <button
@@ -16,46 +18,54 @@ import Cartbox from "../components/Cartbox.astro";
     </button>
 
     <div class="dropdown" id="menuDropdown" role="menu" aria-hidden="true">
-      <!-- LEFT: your existing links (kept in same place) -->
+
+      <!-- LEFT -->
       <div class="dropdown-left" aria-label="Main menu">
 
-  <a href="/" role="menuitem" tabindex="-1">
-    HOME <span class="arrow"> 〉 </span>
-  </a>
+        <a href="/" role="menuitem" tabindex="-1">
+          HOME <span class="arrow"> 〉 </span>
+        </a>
 
-  <a
-    href="/Shop"
-    role="menuitem"
-    tabindex="-1"
-    id="shopToggle"
-  >
-    SHOP <span class="arrow"> 〉</span>
-  </a>
+        <a
+          href="/Shop"
+          role="menuitem"
+          tabindex="-1"
+          id="shopToggle"
+        >
+          SHOP <span class="arrow"> 〉</span>
+        </a>
 
-  <div class="shop-submenu" id="shopSubmenu">
-    <a href="/Shop">SHOP ALL</a>
-    <a href="/Shop">BLAZERE</a>
-    <a href="/Shop">SUITS</a>
-  </div>
+        <div class="shop-submenu" id="shopSubmenu">
+          <a href="/Shop">SHOP ALL</a>
+          <a href="/Shop">BLAZERE</a>
+          <a href="/Shop">SUITS</a>
+        </div>
 
-  <a href="/Aboutlookbook" role="menuitem" tabindex="-1">
-    ABOUT US & LOOKBOOK <span class="arrow"> 〉 </span>
-  </a>
+        <a href="/Aboutlookbook" role="menuitem" tabindex="-1">
+          ABOUT US & LOOKBOOK <span class="arrow"> 〉 </span>
+        </a>
 
-  <a href="/Event" role="menuitem" tabindex="-1">
-    EVENTS <span class="arrow"> 〉 </span>
-  </a>
+        <a href="/Event" role="menuitem" tabindex="-1">
+          EVENTS <span class="arrow"> 〉 </span>
+        </a>
 
-</div>
+      </div>
 
-      <!-- RIGHT: two news items -->
+      <!-- RIGHT -->
       <div class="dropdown-right" aria-label="News">
+
         <a class="news-card" href="/">
           <div class="news-meta">
             <span class="news-number">01</span>
             <span class="news-label">NEWS</span>
           </div>
-           <img class="news-image" src="src/assets/suitpaastol.jpg" alt="News 01" loading="lazy" />
+
+          <img
+            class="news-image"
+            src={suitpaastol.src}
+            alt="News 01"
+            loading="lazy"
+          />
         </a>
 
         <a class="news-card" href="/Event">
@@ -63,8 +73,15 @@ import Cartbox from "../components/Cartbox.astro";
             <span class="news-number">02</span>
             <span class="news-label">NEXT EVENT</span>
           </div>
-           <img class="news-image" src="src/assets/kaareogida.jpg" alt="News 02" loading="lazy" />
+
+          <img
+            class="news-image"
+            src={kaareogida.src}
+            alt="News 02"
+            loading="lazy"
+          />
         </a>
+
       </div>
     </div>
   </div>
@@ -76,16 +93,17 @@ import Cartbox from "../components/Cartbox.astro";
 
   <nav>
     <a href="/Profile">PROFILE</a>
+
     <button class="bag-btn" id="openCart">
       BAG
     </button>
   </nav>
 </header>
 
-<!-- Backdrop (darkens the rest of the page) -->
+<!-- Backdrop -->
 <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
-<!-- SELVE KURV BOXEN -->
+<!-- CART -->
 <Cartbox />
 
 <style>

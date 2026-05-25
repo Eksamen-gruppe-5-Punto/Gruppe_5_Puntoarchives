@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import eventImage from '../assets/111.png';
-import eventImage2 from '../assets/event1.png';
-import eventImage3 from '../assets/event3.png';
-import eventVideo from '../assets/0521.mp4';
+import eventImage from '../assets/111.webp';
+import eventImage2 from '../assets/event1.webp';
+import eventImage3 from '../assets/event3.webp';
+import eventVideo from '../assets/0521.webm';
+
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
 import "../styles/global.css";
 
 const events = [
@@ -30,7 +32,7 @@ Live DJ sets and cocktails all night`
 
   {
     image: eventImage3,
-    date: "25 July",
+    date: "25 Juli",
     time: "18:00 - 23:00",
     info: `Refshaleøen, København
 Summer gathering
@@ -47,47 +49,58 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     <section class="hero-section">
       <div>
         <h2>PUNTO EVENTS</h2>
-		<p class="intro-text">
-  Get inspired by <br> timeless tailoring.
-</p>
 
-   <video class="hero-video" autoplay muted loop playsinline>
-          <source src={eventVideo} type="video/mp4" />
+        <p class="intro-text">
+          Get inspired by <br> timeless tailoring.
+        </p>
+
+        <video class="hero-video" autoplay muted loop playsinline>
+        <source src={eventVideo} type="video/webm" />
         </video>
       </div>
 
       <section class="discover-section">
         <h2>DISCOVER</h2>
+
         <div class="line"></div>
 
         <p>
-          <span>PUNTO EVENTS</span>  is an extension of the brand’s universe — bringing together fashion, music, art, and community through carefully curated experiences. From intimate pop-ups and creative showcases to late-night gatherings and collaborative events, each occasion is built around atmosphere, connection, and cultural expression. Rooted in the same timeless and understated identity as PUNTO ARCHIVES, the events create spaces where people can discover new inspirations, meet like-minded individuals, and experience the brand beyond the clothing itself.
+          <span>PUNTO EVENTS</span> is an extension of the brand’s universe —
+          bringing together fashion, music, art, and community through carefully
+          curated experiences. From intimate pop-ups and creative showcases to
+          late-night gatherings and collaborative events, each occasion is built
+          around atmosphere, connection, and cultural expression. Rooted in the
+          same timeless and understated identity as PUNTO ARCHIVES, the events
+          create spaces where people can discover new inspirations, meet
+          like-minded individuals, and experience the brand beyond the clothing
+          itself.
         </p>
       </section>
     </section>
 
-<section class="upcoming">
-  <h2>UPCOMING <br /> EVENTS</h2>
+    <section class="upcoming">
+      <h2>UPCOMING <br /> EVENTS</h2>
 
-  {events.map((event) => (
-    <article class="event-card">
+      {events.map((event) => (
+        <article class="event-card">
+          <div class="line"></div>
+
+          <img src={event.image.src} alt="Event image" />
+
+          <div class="event-meta">
+            <h3>{event.date}</h3>
+            <p class="time">{event.time}</p>
+          </div>
+
+          <p class="event-info">{event.info}</p>
+        </article>
+      ))}
+
       <div class="line"></div>
-
-      <img src={event.image.src} alt="Event image" />
-
-      <div class="event-meta">
-        <h3>{event.date}</h3>
-        <p class="time">{event.time}</p>
-      </div>
-
-      <p class="event-info">{event.info}</p>
-    </article>
-  ))}
-
-  <div class="line"></div>
-</section>
+    </section>
 
   </section>
+
   <Footer />
 </Layout>
 
