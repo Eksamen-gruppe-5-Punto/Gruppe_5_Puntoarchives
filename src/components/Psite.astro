@@ -1,10 +1,13 @@
 ---
-
+import Button from "./Button.astro";
+import "../styles/global.css";
 ---
 
 <section class="product-section">
   <div class="product-grid">
-    <a class="back">BACK</a>
+    <button class="back" type="button" onclick="history.back()">
+      BACK
+    </button>
 
     <h1 class="headline">BLAZER</h1>
 
@@ -17,7 +20,21 @@
       <h2 class="product-title">Beige Blazer</h2>
       <p class="product-size">Størrelse 52 (L)</p>
       <p class="product-price">649 DKK</p>
-      <button class="add-to-bag">ADD TO BAG</button>
+
+      <section
+        class="button-test add-to-cart"
+        data-brand="KENZO"
+        data-name="Beige Blazer"
+        data-price="649"
+        data-size="52 (L)"
+        data-image="https://placehold.co/539x813"
+      >
+        <Button
+          text="ADD TO BAG"
+          href="/cart"
+          variant="add-to-bag"
+        />
+      </section>
     </div>
 
     <div class="description">
@@ -48,23 +65,34 @@
   .product-section {
     width: 100%;
     background: white;
-    padding: 22px 16px 80px;
+    padding: 85px 16px 80px;
   }
 
   .product-grid {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    padding-top: 22px;
   }
 
   .back {
-    display: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    font-size: 18px;
+
+    background: none;
+    border: none;
+    padding: 0;
+
+    cursor: pointer;
   }
 
   .headline {
-    margin: 0 0 16px;
-    font-family: "Bodoni 72", "Playfair Display", serif;
-    font-size: 32px;
+    margin: 24px 0 16px;
     font-weight: 400;
     line-height: 1;
   }
@@ -111,17 +139,6 @@
     font-size: 13px;
   }
 
-  .add-to-bag {
-    width: 100%;
-    height: 40px;
-    border: 1px solid black;
-    background: transparent;
-    font-family: "Playfair Display", serif;
-    font-size: 9px;
-    cursor: pointer;
-    margin-bottom: 80px;
-  }
-
   .description {
     display: none;
   }
@@ -141,25 +158,21 @@
     display: none;
   }
 
-  /* DESKTOP */
   @media (min-width: 1280px) {
     .product-section {
-      padding: 90px 0 80px;
+      padding: 110px 0 80px;
     }
 
     .product-grid {
       max-width: 1290px;
       height: 1408px;
       position: relative;
+      padding-top: 0;
     }
 
     .back {
-      display: block;
-      position: absolute;
       left: 0;
       top: 0;
-      font-family: "Merriweather Sans", sans-serif;
-      font-size: 12px;
     }
 
     .headline {
@@ -182,7 +195,6 @@
     .image-frame-main img {
       width: 539px;
       height: 813px;
-      object-fit: cover;
       object-position: center -70px;
     }
 
@@ -210,13 +222,6 @@
     .product-price {
       font-size: 28px;
       margin-bottom: 22px;
-    }
-
-    .add-to-bag {
-      width: 463px;
-      height: 63px;
-      font-size: 14px;
-      margin: 0;
     }
 
     .description {
@@ -254,7 +259,6 @@
     .image-frame-bottom img {
       width: 539px;
       height: 813px;
-      object-fit: cover;
       object-position: center -140px;
     }
 

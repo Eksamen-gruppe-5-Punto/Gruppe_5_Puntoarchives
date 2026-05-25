@@ -1,27 +1,47 @@
 ---
 import Button from "./Button.astro"
+
+const product = {
+  brand: "KENZO",
+  name: "Kenzo Homme Brown and Beige Cotton Sport Jacket Blazer",
+  price: 649,
+  size: "52 (L)",
+  image: "https://i.pinimg.com/webp85/1200x/b2/c4/88/b2c48829ef6b025247e8154e7e39a44c.webp"
+};
 ---
 
 <section class="card">
-  <img
-    src="https://i.pinimg.com/webp85/1200x/b2/c4/88/b2c48829ef6b025247e8154e7e39a44c.webp"
-    alt="Blazer"
-  />
 
-  <div class="content">
-    <p class="brand">KENZO</p>
-    <h2>Kenzo Homme Brown and Beige Cotton Sport Jacket Blazer</h2>
-    <p class="price">649 DKK </p>
+  <a href="/Product" class="card-link">
 
+    <img
+      src={product.image}
+      alt="Blazer"
+    />
 
-   <section class="button-test">
-   <Button
-  size="52 (L)"
-  text="ADD TO BAG"
-  variant="light"
-/> 
+    <div class="content">
+      <p class="brand">{product.brand}</p>
+      <h2>{product.name}</h2>
+      <p class="price">{product.price} DKK </p>
     </div>
-  </div>
+
+  </a>
+
+  <section
+    class="button-test add-to-cart"
+    data-brand={product.brand}
+    data-name={product.name}
+    data-price={product.price}
+    data-size={product.size}
+    data-image={product.image}
+  >
+    <Button
+      size={product.size}
+      text="ADD TO BAG"
+      variant="light"
+    />
+  </section>
+
 </section>
 
 <style>
@@ -30,6 +50,17 @@ import Button from "./Button.astro"
     background: white;
   }
 
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link h2,
+.card-link p {
+  color: inherit;
+  text-decoration: none;
+}
   .card img {
     width: 100%;
     height: 423px;
@@ -59,28 +90,5 @@ import Button from "./Button.astro"
   .price {
     font-size: 18px;
     margin: 0 0 18px;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 10px;
-    height: 43px;
-  }
-
-  .buttons button {
-    border: 1px solid black;
-    background: rgb(255, 255, 255);
-    height: 43px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-
-  .size {
-    width: 80px;
-    background-color: black;
-  }
-
-  .cart {
-    flex: 1;
   }
 </style>
