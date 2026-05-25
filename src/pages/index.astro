@@ -8,6 +8,10 @@ import tiktok from "../assets/tiktok.png";
 import facebook from "../assets/facebooj.png";
 import Pcard from "../components/Pcard.astro";
 import "../styles/global.css";
+import img01 from "../assets/01.webp";
+import img02 from "../assets/02.png";
+import img03 from "../assets/03.png";
+import img04 from "../assets/04.png";
 ---
 
 <Layout>
@@ -28,28 +32,28 @@ import "../styles/global.css";
     <article class="item item-1">
       <div class="label"><span>01</span> SHOP BLAZERE</div>
       <a href="/Shop" class="image-frame">
-        <img src="/src/assets/01.webp" alt="Shop blazere" />
+        <img src={img01.src} alt="Shop blazere" />
       </a>
     </article>
 
     <article class="item item-2">
       <div class="label"><span>02</span> SHOP SUITS</div>
       <a href="/Shop" class="image-frame">
-        <img src="/src/assets/02.png" alt="Shop suits" />
+        <img src={img02.src} alt="Shop suits" />
       </a>
     </article>
 
     <article class="item item-3">
       <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
       <a href="/Aboutlookbook" class="image-frame">
-        <img src="/src/assets/03.png" alt="Lookbook" />
+        <img src={img03.src} alt="Lookbook" />
       </a>
     </article>
 
     <article class="item item-4">
       <div class="label"><span>04</span> EVENTS</div>
       <a href="/Event" class="image-frame">
-        <img src="/src/assets/04.png" alt="Events" />
+        <img src={img04.src} alt="Events" />
       </a>
     </article>
   </section>
