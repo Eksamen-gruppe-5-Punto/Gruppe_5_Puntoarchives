@@ -3,103 +3,114 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+
+import img1 from "../assets/img-1.webp";
+import img2 from "../assets/img-2.webp";
+import img3 from "../assets/img-3.webp";
+import img4 from "../assets/img-4.webp";
+import img5 from "../assets/img-5.webp";
+import img6 from "../assets/img-6.webp";
+import img7 from "../assets/img-7.webp";
+import img8 from "../assets/img-8.webp";
+import img9 from "../assets/img-9.webp";
 ---
 
 <Layout>
   <Navigation />
 
   <section class="lookbook-page">
-  <h1>ABOUT US & LOOKBOOK</h1>
+    <h1>ABOUT US & LOOKBOOK</h1>
 
-  <img
-    class="small-frame img-1"
-    src="/src/assets/img-1.png"
-    alt="Lookbook image"
-  />
-
-  <p class="caption caption-1">
-    From our 2026 Collection campaign at Soho House in Copenhagen.
-  </p>
-
-  <img
-    class="large-frame img-2 offset-right"
-    src="/src/assets/img-2.png"
-    alt="Lookbook image"
-  />
-
-  <p class="body-text body-1">
-    PUNTO ARCHIVES explores the space between memory and material — a curated
-    selection of garments shaped by texture, silhouette, and time. Each piece is
-    chosen for its character and longevity, blending archival influence with a
-    contemporary point of view. Rooted in understated design and thoughtful
-    curation, the collection reflects an appreciation for clothing that feels
-    both lived-in and lasting.
-  </p>
-
-  <img
-    class="wide-frame img-3"
-    src="/src/assets/img-3.png"
-    alt="Lookbook image"
-  />
-
-  <img
-    class="small-frame img-4 right"
-    src="/src/assets/img-4.png"
-    alt="Lookbook image"
-  />
-
-  <p class="caption caption-2 right-text">
-    Founder “Johan Wandler” having fun with the camera
-  </p>
-
-  <h2>“TAILORING WORTH NOTICING”</h2>
-
-  <img
-    class="wide-frame img-5"
-    src="/src/assets/img-5.png"
-    alt="Lookbook image"
-  />
-
-  <img
-    class="small-frame img-6 right"
-    src="/src/assets/img-6.png"
-    alt="Lookbook image"
-  />
-
-  <p class="caption caption-3 right-text">
-    Copenhagen-based vintage fashion project.
-  </p>
-
-  <img
-    class="large-frame img-7"
-    src="/src/assets/img-7.png"
-    alt="Lookbook image"
-  />
-
-  <h2 class="lookbook-title">LOOKBOOK</h2>
-
-  <p class="body-text body-2 short">
-    The lookbook reflects a few of our favorite pictures and moments taken at
-    Soho House in Copenhagen for our 2026 campaign.
-  </p>
-
-  <img
-    class="wide-frame img-8"
-    src="/src/assets/img-8.png"
-    alt="Lookbook image"
-  />
-
-  <div class="bottom-row">
     <img
-      class="small-frame img-9"
-      src="/src/assets/img-9.png"
+      class="small-frame img-1"
+      src={img1.src}
       alt="Lookbook image"
     />
 
-    <span class="page-number">03</span>
-  </div>
-</section>
- <Footer />
+    <p class="caption caption-1">
+      From our 2026 Collection campaign at Soho House in Copenhagen.
+    </p>
+
+    <img
+      class="large-frame img-2 offset-right"
+      src={img2.src}
+      alt="Lookbook image"
+    />
+
+    <p class="body-text body-1">
+      PUNTO ARCHIVES explores the space between memory and material — a curated
+      selection of garments shaped by texture, silhouette, and time. Each piece is
+      chosen for its character and longevity, blending archival influence with a
+      contemporary point of view. Rooted in understated design and thoughtful
+      curation, the collection reflects an appreciation for clothing that feels
+      both lived-in and lasting.
+    </p>
+
+    <img
+      class="wide-frame img-3"
+      src={img3.src}
+      alt="Lookbook image"
+    />
+
+    <img
+      class="small-frame img-4 right"
+      src={img4.src}
+      alt="Lookbook image"
+    />
+
+    <p class="caption caption-2 right-text">
+      Founder “Johan Wandler” having fun with the camera
+    </p>
+
+    <h2>“TAILORING WORTH NOTICING”</h2>
+
+    <img
+      class="wide-frame img-5"
+      src={img5.src}
+      alt="Lookbook image"
+    />
+
+    <img
+      class="small-frame img-6 right"
+      src={img6.src}
+      alt="Lookbook image"
+    />
+
+    <p class="caption caption-3 right-text">
+      Copenhagen-based vintage fashion project.
+    </p>
+
+    <img
+      class="large-frame img-7"
+      src={img7.src}
+      alt="Lookbook image"
+    />
+
+    <h2 class="lookbook-title">LOOKBOOK</h2>
+
+    <p class="body-text body-2 short">
+      The lookbook reflects a few of our favorite pictures and moments taken at
+      Soho House in Copenhagen for our 2026 campaign.
+    </p>
+
+    <img
+      class="wide-frame img-8"
+      src={img8.src}
+      alt="Lookbook image"
+    />
+
+    <div class="bottom-row">
+      <img
+        class="small-frame img-9"
+        src={img9.src}
+        alt="Lookbook image"
+      />
+
+      <span class="page-number">03</span>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
 
 <style>
