@@ -1,103 +1,143 @@
 ---
 import Button from "./Button.astro";
-import kurvImage from "../assets/kurv.webp";
-
-const cartItems = [
-  {
-    brand: "KENZO",
-    name: "Kenzo Homme Brown and Beige Cotten Sport Jacket Blazer",
-    price: 649,
-    quantity: 1,
-    image: kurvImage.src
-  },
-  {
-    brand: "KENZO",
-    name: "Kenzo Homme Brown and Beige Cotten Sport Jacket Blazer",
-    price: 649,
-    quantity: 1,
-    image: kurvImage.src
-  }
-];
-
-const isEmpty = cartItems.length === 0;
-
-const subtotal = cartItems.reduce((total, item) => {
-  return total + item.price * item.quantity;
-}, 0);
-
-const shipping = 35;
-const total = subtotal + shipping;
 ---
 
 <aside class="cart-box" id="cartBox">
-
   <div class="cart-header">
-    <h2>
-      {isEmpty
-        ? `YOUR CART IS EMPTY (0)`
-        : `CART (${cartItems.length})`}
-    </h2>
-
+    <h2 id="cartTitle">YOUR CART IS EMPTY (0)</h2>
     <button class="close-cart-btn" id="closeCart">×</button>
   </div>
 
-  {!isEmpty && (
-    <>
-      <div class="cart-items">
-        {cartItems.map((item) => (
-          <article class="cart-item">
-            <img src={item.image} alt={item.name} />
+  <div class="cart-items" id="cartItems"></div>
 
-            <div class="cart-info">
-              <p class="brand">{item.brand}</p>
+  <section class="summary" id="cartSummary">
+    <h3>SUMMARY</h3>
 
-              <h3>{item.name}</h3>
+    <div>
+      <span>Sum articles</span>
+      <span id="cartSubtotal">0 DKK</span>
+    </div>
 
-              <div class="cart-bottom">
-                <span>{item.quantity}</span>
-                <span>{item.price} DKK</span>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+    <div>
+      <span>Shipping</span>
+      <span>35 DKK</span>
+    </div>
+  </section>
 
-      <section class="summary">
-        <h3>SUMMARY</h3>
-
-        <div>
-          <span>Sum articles</span>
-          <span>{subtotal.toLocaleString("da-DK")} DKK</span>
-        </div>
-
-        <div>
-          <span>Shipping</span>
-          <span>{shipping} DKK</span>
-        </div>
-      </section>
-
-      <div class="total">
-        <span>TOTAL</span>
-        <span>{total.toLocaleString("da-DK")} DKK</span>
-      </div>
-    </>
-  )}
-
-  <div class="cart-actions">
-    <Button
-      text="CHECK OUT"
-      href="/checkout"
-      variant="show-products"
-    />
-
-    <Button
-      text="CONTINUE SHOPPING"
-      href="/shop"
-      variant="reset-filter"
-    />
+  <div class="total" id="cartTotalBox">
+    <span>TOTAL</span>
+    <span id="cartTotal">0 DKK</span>
   </div>
 
+  <div class="cart-actions">
+    <Button text="CHECK OUT" href="/checkout" variant="show-products" />
+    <Button text="CONTINUE SHOPPING" href="/shop" variant="reset-filter" />
+  </div>
 </aside>
+
+<script is:inline>
+  const cartBox = document.querySelector("#cartBox");
+  const openCart = document.querySelector("#openCart");
+  const closeCart = document.querySelector("#closeCart");
+
+  const cartTitle = document.querySelector("#cartTitle");
+  const cartItemsContainer = document.querySelector("#cartItems");
+  const cartSummary = document.querySelector("#cartSummary");
+  const cartTotalBox = document.querySelector("#cartTotalBox");
+  const cartSubtotal = document.querySelector("#cartSubtotal");
+  const cartTotal = document.querySelector("#cartTotal");
+
+  const shipping = 35;
+  let cartItems = [];
+
+  function renderCart() {
+    cartItemsContainer.innerHTML = "";
+
+    if (cartItems.length === 0) {
+      cartTitle.textContent = "YOUR CART IS EMPTY (0)";
+      cartSummary.style.display = "none";
+      cartTotalBox.style.display = "none";
+      return;
+    }
+
+    cartTitle.textContent = `CART (${cartItems.length})`;
+    cartSummary.style.display = "block";
+    cartTotalBox.style.display = "flex";
+
+    cartItems.forEach((item, index) => {
+      cartItemsContainer.innerHTML += `
+        <article class="cart-item">
+          <img src="${item.image}" alt="${item.name}" />
+
+          <div class="cart-info">
+            <div class="cart-top">
+              <p class="brand">${item.brand}</p>
+
+              <button class="remove-item" data-index="${index}">
+                ×
+              </button>
+            </div>
+
+            <h3>${item.name}</h3>
+
+            <div class="cart-bottom">
+              <span>${item.quantity}</span>
+              <span>${item.price} DKK</span>
+            </div>
+          </div>
+        </article>
+      `;
+    });
+
+    const subtotal = cartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+
+    cartSubtotal.textContent = `${subtotal.toLocaleString("da-DK")} DKK`;
+    cartTotal.textContent = `${(subtotal + shipping).toLocaleString("da-DK")} DKK`;
+  }
+
+  openCart?.addEventListener("click", () => {
+    cartBox?.classList.add("is-open");
+  });
+
+  closeCart?.addEventListener("click", () => {
+    cartBox?.classList.remove("is-open");
+  });
+
+  document.addEventListener("click", (event) => {
+    const addButton = event.target.closest(".add-to-cart");
+
+    if (!addButton) return;
+
+    event.preventDefault();
+
+    const product = {
+      brand: addButton.dataset.brand,
+      name: addButton.dataset.name,
+      price: Number(addButton.dataset.price),
+      image: addButton.dataset.image,
+      quantity: 1
+    };
+
+    cartItems.push(product);
+    renderCart();
+    cartBox?.classList.add("is-open");
+  });
+
+  document.addEventListener("click", (event) => {
+    const removeButton = event.target.closest(".remove-item");
+
+    if (!removeButton) return;
+
+    const index = Number(removeButton.dataset.index);
+
+    cartItems.splice(index, 1);
+    renderCart();
+  });
+
+  renderCart();
+</script>
 
 <style>
   .cart-box {
@@ -130,9 +170,7 @@ const total = subtotal + shipping;
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: relative;
-
     margin-bottom: 45px;
   }
 
@@ -146,15 +184,13 @@ const total = subtotal + shipping;
     position: absolute;
     right: 0;
     top: -5px;
-
     background: none;
     border: none;
-
     font-size: 28px;
     cursor: pointer;
   }
 
-  .cart-item {
+  :global(.cart-item) {
     display: grid;
     grid-template-columns: 120px 1fr;
     gap: 20px;
@@ -165,36 +201,47 @@ const total = subtotal + shipping;
     border-bottom: 1px solid black;
   }
 
-  .cart-item img {
+  :global(.cart-item img) {
     width: 120px;
     height: 170px;
-
     object-fit: cover;
   }
+:global(.cart-top) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+:global(.remove-item) {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  margin-top: -1px;
+}
 
-  .brand {
-    font-size: 12px;
-    margin: 0 0 10px;
-  }
+:global(.cart-info .brand) {
+  font-size: 12px;
+  margin: 0;
+}
 
-  .cart-info h3 {
+  :global(.cart-info h3) {
     font-size: 16px;
     font-weight: 400;
     margin: 0;
+    margin-top: 10px;
   }
 
-  .cart-bottom {
+  :global(.cart-bottom) {
     display: flex;
     justify-content: space-between;
-
     margin-top: 70px;
-
     font-size: 16px;
   }
 
   .summary {
     border-bottom: 1px solid black;
-
     padding-bottom: 20px;
     margin-bottom: 28px;
   }
@@ -202,7 +249,6 @@ const total = subtotal + shipping;
   .summary h3 {
     font-size: 16px;
     font-weight: 400;
-
     margin-bottom: 24px;
   }
 
@@ -210,7 +256,6 @@ const total = subtotal + shipping;
   .total {
     display: flex;
     justify-content: space-between;
-
     font-size: 16px;
     margin-bottom: 18px;
   }
@@ -223,15 +268,13 @@ const total = subtotal + shipping;
     margin-top: 50px;
   }
 
-  .empty-cart {
-    min-height: 70vh;
-  }
-
   @media (max-width: 700px) {
     .cart-box {
       width: 100%;
       max-width: none;
       min-width: unset;
     }
+    
+    
   }
 </style>

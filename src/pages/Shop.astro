@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation.astro";
 import Filterbox from "../components/Filterbox.astro";
 import Cardrack from "../components/Cardrack.astro";
 import Footer from "../components/Footer.astro";
+import Features from "../components/Features.astro";
 ---
 
 <Layout>
@@ -11,7 +12,7 @@ import Footer from "../components/Footer.astro";
 
   <main class="shop-page">
     <section class="shop-hero">
-      <h2>SHOP</h2>
+      <h1>SHOP</h1>
     </section>
 
     <button class="filter-open-btn" id="openFilter" type="button">
@@ -32,6 +33,7 @@ import Footer from "../components/Footer.astro";
     <Cardrack />
   </main>
 
+    <Features />
   <Footer />
 </Layout>
 
@@ -43,22 +45,30 @@ import Footer from "../components/Footer.astro";
     const filterButtons = document.querySelectorAll(".filter-btn");
     const resetButton = document.querySelector(".btn.reset-filter");
 
+    /* SHOP SUBMENU */
+    const shopToggle = document.getElementById("shopToggle");
+    const shopSubmenu = document.getElementById("shopSubmenu");
+
     if (!openBtn || !filterBox || !closeBtn) return;
 
+    /* ÅBN FILTER */
     openBtn.addEventListener("click", () => {
       filterBox.classList.add("is-open");
     });
 
+    /* LUK FILTER */
     closeBtn.addEventListener("click", () => {
       filterBox.classList.remove("is-open");
     });
 
+    /* FILTER BUTTONS */
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         button.classList.toggle("selected");
       });
     });
 
+    /* RESET FILTER */
     if (resetButton) {
       resetButton.addEventListener("click", (event) => {
         event.preventDefault();
@@ -72,9 +82,16 @@ import Footer from "../components/Footer.astro";
         });
       });
     }
+
+    /* SHOP SUBMENU */
+    shopToggle?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      shopSubmenu?.classList.toggle("open");
+    });
   });
 </script>
-
 <style>
   .shop-page {
     padding: 32px 20px 40px;
