@@ -24,460 +24,470 @@ import "../styles/global.css";
       <h4>Elegance without excess</h4>
     </div>
   </section>
-<section class="gallery">
-  <article class="item item-1">
-    <div class="label"><span>01</span> SHOP BLAZERE</div>
-    <a href="/Shop" class="image-frame">
-      <img src="/src/assets/01.png" alt="Shop blazere">
-    </a>
-  </article>
+  <section class="gallery">
+    <article class="item item-1">
+      <div class="label"><span>01</span> SHOP BLAZERE</div>
+      <a href="/Shop" class="image-frame">
+        <img src="/src/assets/01.webp" alt="Shop blazere" />
+      </a>
+    </article>
 
-  <article class="item item-2">
-    <div class="label"><span>02</span> SHOP SUITS</div>
-    <a href="/Shop" class="image-frame">
-      <img src="/src/assets/02.png" alt="Shop suits">
-    </a>
-  </article>
+    <article class="item item-2">
+      <div class="label"><span>02</span> SHOP SUITS</div>
+      <a href="/Shop" class="image-frame">
+        <img src="/src/assets/02.png" alt="Shop suits" />
+      </a>
+    </article>
 
-  <article class="item item-3">
-    <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
-    <a href="/Aboutlookbook" class="image-frame">
-      <img src="/src/assets/03.png" alt="Lookbook">
-    </a>
-  </article>
+    <article class="item item-3">
+      <div class="label"><span>03</span> ABOUT US & LOOKBOOK</div>
+      <a href="/Aboutlookbook" class="image-frame">
+        <img src="/src/assets/03.png" alt="Lookbook" />
+      </a>
+    </article>
 
-  <article class="item item-4">
-    <div class="label"><span>04</span> EVENTS</div>
-    <a href="/Event" class="image-frame">
-      <img src="/src/assets/04.png" alt="Events">
-    </a>
-  </article>
-</section>
+    <article class="item item-4">
+      <div class="label"><span>04</span> EVENTS</div>
+      <a href="/Event" class="image-frame">
+        <img src="/src/assets/04.png" alt="Events" />
+      </a>
+    </article>
+  </section>
 
   <h4 class="scroll-more">SCROLL FOR MORE</h4>
 
-<section class="universe">
-  <h1>OUR UNIVERSE</h1>
-  <div class="universe-line"></div>
+  <section class="universe">
+    <h1>OUR UNIVERSE</h1>
+    <div class="universe-line"></div>
 
-  <p>
-    Punto Archives is more than a curated vintage fashion project. It is an
-    ongoing visual archive of timeless menswear, refined tailoring, and
-    understated elegance. Each piece is carefully selected for its character,
-    craftsmanship, and ability to exist effortlessly between past and present.
-    <br /><br />
-    To experience the full world of Punto Archives, explore our social platforms
-    where the collection comes to life through editorials, styling videos,
-    behind-the-scenes moments, and daily archival finds.
-    <br />
-    Stay connected with the evolving universe of Punto Archives.
-    <br /><br />
-    Scroll below to explore featured visuals and follow us on social media.
-  </p>
+    <p>
+      Punto Archives is more than a curated vintage fashion project. It is an
+      ongoing visual archive of timeless menswear, refined tailoring, and
+      understated elegance. Each piece is carefully selected for its character,
+      craftsmanship, and ability to exist effortlessly between past and present.
+      <br /><br />
+      To experience the full world of Punto Archives, explore our social platforms
+      where the collection comes to life through editorials, styling videos, behind-the-scenes
+      moments, and daily archival finds.
+      <br />
+      Stay connected with the evolving universe of Punto Archives.
+      <br /><br />
+      Scroll below to explore featured visuals and follow us on social media.
+    </p>
 
-  <div class="socials">
-    <a href="https://www.instagram.com/punto.archives/" target="_blank">
-      <img src={instagram.src} alt="Instagram" />
-    </a>
+    <div class="socials">
+      <a href="https://www.instagram.com/punto.archives/" target="_blank">
+        <img src={instagram.src} alt="Instagram" />
+      </a>
 
-    <a href="https://www.tiktok.com/@puntoarchives" target="_blank">
-      <img src={tiktok.src} alt="TikTok" />
-    </a>
+      <a href="https://www.tiktok.com/@puntoarchives" target="_blank">
+        <img src={tiktok.src} alt="TikTok" />
+      </a>
 
-    <a href="https://www.facebook.com/profile.php?id=61583900019024" target="_blank">
-      <img src={facebook.src} alt="Facebook" />
-    </a>
-  </div>
+      <a
+        href="https://www.facebook.com/profile.php?id=61583900019024"
+        target="_blank"
+      >
+        <img src={facebook.src} alt="Facebook" />
+      </a>
+    </div>
 
-  <div class="universe-images">
-    
+    <div class="universe-images">
+      <img
+        src="src/assets/personsuit.jpg"
+        alt="a suit"
+        class="universe-img item-person"
+      />
+      <img
+        src="src/assets/magazine.jpg"
+        alt="Vintage magazine"
+        class="universe-img item-magazine"
+      />
+      <img
+        src="src/assets/plaidjacket.jpg"
+        alt="plaid jacket"
+        class="universe-img item-jacket"
+      />
+    </div>
+  </section>
 
-    <img src="src/assets/personsuit.jpg" alt="a suit" class="universe-img item-person">
-        <img src="src/assets/magazine.jpg" alt="Vintage magazine" class="universe-img item-magazine">
-    <img src="src/assets/plaidjacket.jpg" alt="plaid jacket" class="universe-img item-jacket">
- 
-  </div>
-</section>
+  <script is:inline>
+    const scrollText = document.querySelector(".scroll-more");
 
-<script is:inline>
-  const scrollText = document.querySelector(".scroll-more");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        scrollText.style.opacity = "0";
+      } else {
+        scrollText.style.opacity = "1";
+      }
+    });
+  </script>
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      scrollText.style.opacity = "0";
-    } else {
-      scrollText.style.opacity = "1";
-    }
-  });
-</script>
+  <section class="vision">
+    <h1>A VISION OF STYLE</h1>
 
-<section class="vision">
-  <h1>A VISION OF STYLE</h1>
+    <div class="vision-line"></div>
 
-  <div class="vision-line"></div>
-
-  <div class="vision-grid">
-    <Pcard />
-    <Pcard />
-    <Pcard />
-  </div>
-</section>
+    <div class="vision-grid">
+      <Pcard />
+      <Pcard />
+      <Pcard />
+    </div>
+  </section>
   <Features />
   <Footer />
 </Layout>
 
-
-
 <style>
-/* SECTION MED HERO OG BILLEDER */
-.hero {
-  padding: 32px 20px 0;
-}
-
-.hero h1,
-.hero h2 {
-  margin: 0;
-  margin-top: 40px;
-  font-size: 44px;
-  line-height: 1.08;
-  font-weight: 400;
-  letter-spacing: 0.88px;
-}
-
-.subtitle-left,
-.hero-right h4 {
-  margin: 15px 0 0;
-  font-size: 16px;
-  font-weight: 100;
-}
-
-.hero-right,
-.subtitle-left {
-  display: none;
-}
-
-.gallery {
-  width: 100%;
-  padding: 32px 20px;
-  box-sizing: border-box;
-}
-
-.item {
-  margin-bottom: 36px;
-}
-
-.label {
-  margin-bottom: 8px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.label span {
-  font-size: 25px;
-  margin-right: 6px;
-}
-
-.image-frame {
-  display: block;
-  background: #e2e2e2;
-  overflow: hidden;
-}
-
-.image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.item-3 .image-frame img {
-  object-position: center 20%;
-}
-
-.item-1 .image-frame {
-  width: 280px;
-  height: 310px;
-}
-
-.item-2 {
-  margin-left: 155px;
-}
-
-.item-2 .image-frame {
-  width: 198px;
-  height: 180px;
-}
-
-.item-3 {
-  margin-left: 0;
-}
-
-.item-3 .image-frame {
-  width: 280px;
-  height: 310px;
-}
-
-.item-4 {
-  margin-left: 155px;
-}
-
-.item-4 .image-frame {
-  width: 196px;
-  height: 152px;
-}
-
-.scroll-more {
-  display: none;
-}
-
-.universe-frame:last-child {
-  display: none;
-}
-
-/* SECTION DISCOVER */
-.universe {
-  padding: 60px 20px;
-}
-
-.universe h1 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.universe-line {
-  width: 100%;
-  height: 1px;
-  background: black;
-  margin: 18px 0 35px;
-}
-
-.universe p {
-  max-width: 1050px;
-  margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.15;
-}
-
-.socials {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 42px;
-}
-
-.socials a {
-  display: block;
-}
-
-.socials img {
-  width: 33px;
-  height: 33px;
-  object-fit: contain;
-  display: block;
-}
-
-.universe-images {
-  display: grid;
-  gap: 28px;
-}
-
-.universe-frame {
-  height: 275px;
-  background: #e2e2e2;
-}
-.universe-img {
-  width: 100%;
-  height: 275px;
-  object-fit: cover;
-  display: block;
-}
-.item-jacket {
-  display: none;
-}
-
-/* VISION */
-.vision {
-  padding: 28px 20px 70px;
-}
-
-.vision h1 {
-  font-size: 24px;
-  font-weight: 400;
-  margin: 0;
-}
-
-.vision-line {
-  width: 100%;
-  height: 1px;
-  background: black;
-  margin: 18px 0 28px;
-}
-
-.vision-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-  align-items: center;
-}
-
-/* DESKTOP */
-@media (min-width: 1280px) {
+  /* SECTION MED HERO OG BILLEDER */
   .hero {
-    display: flex;
-    justify-content: space-between;
-    padding: 55px 0 0;
-    margin-left: 57px;
-    width: calc(100% - 114px);
+    padding: 32px 20px 0;
   }
 
   .hero h1,
   .hero h2 {
-    line-height: 0.95;
-    letter-spacing: 1.28px;
+    margin: 0;
+    margin-top: 40px;
+    font-size: 44px;
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: 0.88px;
   }
 
   .subtitle-left,
-  .hero-right {
-    display: block;
-  }
-
-  .hero-right {
-    text-align: right;
-  }
-
   .hero-right h4 {
-    text-align: right;
-    margin-top: 15px;
+    margin: 15px 0 0;
+    font-size: 16px;
     font-weight: 100;
+  }
+
+  .hero-right,
+  .subtitle-left {
+    display: none;
   }
 
   .gallery {
-  position: relative;
-  height: 610px;
-  margin: 20px auto 0;
-  padding: 0;
-  max-width: 1320px;
-  width: calc(100% - 114px);
-  box-sizing: border-box;
-}
-
-  .item {
-    position: absolute;
-    margin-bottom: 0;
-    margin-left: 0;
+    width: 100%;
+    padding: 32px 20px;
+    box-sizing: border-box;
   }
 
-  .item-1 {
-    left: 0;
-    top: 0;
+  .item {
+    margin-bottom: 36px;
+  }
+
+  .label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .label span {
+    font-size: 25px;
+    margin-right: 6px;
+  }
+
+  .image-frame {
+    display: block;
+    background: #e2e2e2;
+    overflow: hidden;
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .item-3 .image-frame img {
+    object-position: center 20%;
   }
 
   .item-1 .image-frame {
-    width: 340px;
-    height: 480px;
+    width: 280px;
+    height: 310px;
   }
 
   .item-2 {
-    left: 390px;
-    top: 80px;
+    margin-left: 155px;
   }
 
   .item-2 .image-frame {
-    width: 250px;
-    height: 320px;
+    width: 198px;
+    height: 180px;
   }
 
   .item-3 {
-    left: 690px;
-    top: 40px;
+    margin-left: 0;
   }
 
   .item-3 .image-frame {
-    width: 330px;
-    height: 400px;
+    width: 280px;
+    height: 310px;
   }
 
   .item-4 {
-    left: 1080px;
-    top: 120px;
+    margin-left: 155px;
   }
 
   .item-4 .image-frame {
-    width: 240px;
-    height: 260px;
+    width: 196px;
+    height: 152px;
   }
 
   .scroll-more {
-    margin-top: -100px;
-    margin-bottom: 60px;
-    text-align: center;
-    font-weight: 100;
-    display: block;
-    transition: opacity 0.4s ease;
+    display: none;
   }
 
   .universe-frame:last-child {
+    display: none;
+  }
+
+  /* SECTION DISCOVER */
+  .universe {
+    padding: 60px 20px;
+  }
+
+  .universe h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .universe-line {
+    width: 100%;
+    height: 1px;
+    background: black;
+    margin: 18px 0 35px;
+  }
+
+  .universe p {
+    max-width: 1050px;
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .socials {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 42px;
+  }
+
+  .socials a {
     display: block;
   }
 
-/* SECTION DISCOVER */
-.universe {
-  padding: 56px 57px 80px;
-}
+  .socials img {
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    display: block;
+  }
 
-.universe h2 {
-  font-size: 64px;
-}
+  .universe-images {
+    display: grid;
+    gap: 28px;
+  }
 
-.universe-line {
-  width: 698px;
-}
+  .universe-frame {
+    height: 275px;
+    background: #e2e2e2;
+  }
+  .universe-img {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+    display: block;
+  }
+  .item-jacket {
+    display: none;
+  }
 
-.universe p {
-  margin-bottom: 22px;
-  width: 80%;
-  font-weight: 100;
-}
-
-.universe-images {
-  display: grid;
-  grid-template-columns: repeat(3, 400px);
-  gap: 55px;
-}
-
-.universe-img {
-  width: 400px;
-  height: 275px;
-
-  object-fit: cover;
-  object-position: center;
-
-  display: block;
-}
   /* VISION */
   .vision {
-    padding: 45px 57px 100px;
+    padding: 28px 20px 70px;
   }
 
   .vision h1 {
-    font-size: 64px;
-    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
     margin: 0;
   }
 
   .vision-line {
     width: 100%;
-    max-width: 1098px;
-    margin: 28px auto 90px;
+    height: 1px;
+    background: black;
+    margin: 18px 0 28px;
   }
 
   .vision-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 349px);
-    justify-content: center;
-    gap: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
   }
-}
+
+  /* DESKTOP */
+  @media (min-width: 1280px) {
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      padding: 55px 0 0;
+      margin-left: 57px;
+      width: calc(100% - 114px);
+    }
+
+    .hero h1,
+    .hero h2 {
+      line-height: 0.95;
+      letter-spacing: 1.28px;
+    }
+
+    .subtitle-left,
+    .hero-right {
+      display: block;
+    }
+
+    .hero-right {
+      text-align: right;
+    }
+
+    .hero-right h4 {
+      text-align: right;
+      margin-top: 15px;
+      font-weight: 100;
+    }
+
+    .gallery {
+      position: relative;
+      height: 610px;
+      margin: 20px auto 0;
+      padding: 0;
+      max-width: 1320px;
+      width: calc(100% - 114px);
+      box-sizing: border-box;
+    }
+
+    .item {
+      position: absolute;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+
+    .item-1 {
+      left: 0;
+      top: 0;
+    }
+
+    .item-1 .image-frame {
+      width: 340px;
+      height: 480px;
+    }
+
+    .item-2 {
+      left: 390px;
+      top: 80px;
+    }
+
+    .item-2 .image-frame {
+      width: 250px;
+      height: 320px;
+    }
+
+    .item-3 {
+      left: 690px;
+      top: 40px;
+    }
+
+    .item-3 .image-frame {
+      width: 330px;
+      height: 400px;
+    }
+
+    .item-4 {
+      left: 1080px;
+      top: 120px;
+    }
+
+    .item-4 .image-frame {
+      width: 240px;
+      height: 260px;
+    }
+
+    .scroll-more {
+      margin-top: -100px;
+      margin-bottom: 60px;
+      text-align: center;
+      font-weight: 100;
+      display: block;
+      transition: opacity 0.4s ease;
+    }
+
+    .universe-frame:last-child {
+      display: block;
+    }
+
+    /* SECTION DISCOVER */
+    .universe {
+      padding: 56px 57px 80px;
+    }
+
+    .universe h2 {
+      font-size: 64px;
+    }
+
+    .universe-line {
+      width: 698px;
+    }
+
+    .universe p {
+      margin-bottom: 22px;
+      width: 80%;
+      font-weight: 100;
+    }
+
+    .universe-images {
+      display: grid;
+      grid-template-columns: repeat(3, 400px);
+      gap: 55px;
+    }
+
+    .universe-img {
+      width: 400px;
+      height: 275px;
+
+      object-fit: cover;
+      object-position: center;
+
+      display: block;
+    }
+    /* VISION */
+    .vision {
+      padding: 45px 57px 100px;
+    }
+
+    .vision h1 {
+      font-size: 64px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .vision-line {
+      width: 100%;
+      max-width: 1098px;
+      margin: 28px auto 90px;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 349px);
+      justify-content: center;
+      gap: 90px;
+    }
+  }
 </style>
