@@ -26,14 +26,14 @@ import kaareogida from "../assets/kaareogida.webp";
           HOME <span class="arrow"> 〉 </span>
         </a>
 
-        <a
-          href="/Shop"
-          role="menuitem"
-          tabindex="-1"
-          id="shopToggle"
-        >
-          SHOP <span class="arrow"> 〉</span>
-        </a>
+      <a
+  href="#"
+  role="menuitem"
+  tabindex="-1"
+  id="shopToggle"
+>
+  SHOP <span class="arrow"> 〉</span>
+</a>
 
         <div class="shop-submenu" id="shopSubmenu">
           <a href="/Shop">SHOP ALL</a>
@@ -610,82 +610,81 @@ import kaareogida from "../assets/kaareogida.webp";
 </style>
 
 <script type="module">
-  const header = document.getElementById('siteHeader');
-  const btn = document.getElementById('menuButton');
-  const dropdown = document.getElementById('menuDropdown');
-  const backdrop = document.getElementById('menuBackdrop');
+  const header = document.getElementById("siteHeader");
+  const btn = document.getElementById("menuButton");
+  const dropdown = document.getElementById("menuDropdown");
+  const backdrop = document.getElementById("menuBackdrop");
+
+  const shopToggle = document.getElementById("shopToggle");
+  const shopSubmenu = document.getElementById("shopSubmenu");
 
   function syncHeaderHeight() {
     const h = header?.offsetHeight ?? 72;
-    document.documentElement.style.setProperty('--header-height', `${h}px`);
+    document.documentElement.style.setProperty("--header-height", `${h}px`);
   }
 
   function openMenu() {
-    header?.classList.add('menu-open');
-    btn?.setAttribute('aria-expanded', 'true');
-    dropdown?.setAttribute('aria-hidden', 'false');
-    dropdown?.classList.add('open');
+    header?.classList.add("menu-open");
+    btn?.setAttribute("aria-expanded", "true");
+    dropdown?.setAttribute("aria-hidden", "false");
+    dropdown?.classList.add("open");
 
-    backdrop?.setAttribute('aria-hidden', 'false');
-    backdrop?.classList.add('open');
+    backdrop?.setAttribute("aria-hidden", "false");
+    backdrop?.classList.add("open");
   }
 
   function closeMenu() {
-    header?.classList.remove('menu-open');
-    btn?.setAttribute('aria-expanded', 'false');
-    dropdown?.setAttribute('aria-hidden', 'true');
-    dropdown?.classList.remove('open');
+    header?.classList.remove("menu-open");
+    btn?.setAttribute("aria-expanded", "false");
+    dropdown?.setAttribute("aria-hidden", "true");
+    dropdown?.classList.remove("open");
+    shopSubmenu?.classList.remove("open");
 
-    backdrop?.setAttribute('aria-hidden', 'true');
-    backdrop?.classList.remove('open');
+    backdrop?.setAttribute("aria-hidden", "true");
+    backdrop?.classList.remove("open");
   }
 
   syncHeaderHeight();
-  window.addEventListener('resize', syncHeaderHeight);
-  window.addEventListener('load', syncHeaderHeight);
+  window.addEventListener("resize", syncHeaderHeight);
+  window.addEventListener("load", syncHeaderHeight);
 
-  btn?.addEventListener('click', () => {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn?.addEventListener("click", () => {
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
     if (isOpen) closeMenu();
     else openMenu();
   });
 
-  // Click on backdrop closes menu
-  backdrop?.addEventListener('click', closeMenu);
+  shopToggle?.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-  document.addEventListener('click', (e) => {
-    if (!dropdown?.contains(e.target) && !btn?.contains(e.target)) closeMenu();
+    shopSubmenu?.classList.toggle("open");
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+  backdrop?.addEventListener("click", closeMenu);
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown?.contains(e.target) && !btn?.contains(e.target)) {
+      closeMenu();
+    }
   });
-  
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
 </script>
+
 <!-- SCRIPT TIL ÅBEN/LUK KURV -->
 <script is:inline>
-
-  /* KNAPPER */
   const openCart = document.querySelector("#openCart");
   const cartBox = document.querySelector("#cartBox");
   const closeCart = document.querySelector("#closeCart");
 
-  /* ÅBN KURV */
   openCart?.addEventListener("click", () => {
     cartBox?.classList.add("is-open");
   });
 
-  /* LUK KURV */
   closeCart?.addEventListener("click", () => {
     cartBox?.classList.remove("is-open");
   });
-
-const shopToggle = document.getElementById('shopToggle');
-const shopSubmenu = document.getElementById('shopSubmenu');
-
-shopToggle?.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  shopSubmenu?.classList.toggle('open');
-});
 </script>
