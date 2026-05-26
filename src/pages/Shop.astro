@@ -45,9 +45,6 @@ import Features from "../components/Features.astro";
     const filterButtons = document.querySelectorAll(".filter-btn");
     const resetButton = document.querySelector(".btn.reset-filter");
 
-    /* SHOP SUBMENU */
-    const shopToggle = document.getElementById("shopToggle");
-    const shopSubmenu = document.getElementById("shopSubmenu");
 
     if (!openBtn || !filterBox || !closeBtn) return;
 
@@ -82,14 +79,6 @@ import Features from "../components/Features.astro";
         });
       });
     }
-
-    /* SHOP SUBMENU */
-    shopToggle?.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      shopSubmenu?.classList.toggle("open");
-    });
   });
 </script>
 <style>
