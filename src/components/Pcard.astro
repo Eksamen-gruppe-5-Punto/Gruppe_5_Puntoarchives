@@ -1,18 +1,12 @@
 ---
 import Button from "./Button.astro"
 
-const product = {
-  brand: "KENZO",
-  name: "Kenzo Homme Brown and Beige Cotton Sport Jacket Blazer",
-  price: 649,
-  size: "52 (L)",
-  image: "https://i.pinimg.com/webp85/1200x/b2/c4/88/b2c48829ef6b025247e8154e7e39a44c.webp"
-};
+const { product } = Astro.props;
 ---
 
 <section class="card">
 
-  <a href="/Product" class="card-link">
+<a href="/Product" class="card-link">
 
     <img
       src={product.image}

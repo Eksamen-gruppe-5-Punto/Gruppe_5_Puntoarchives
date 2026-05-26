@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
@@ -18,7 +19,23 @@ import img04 from "../assets/04.webp";
 import personsuit from "../assets/personsuit.webp";
 import magazine from "../assets/magazine.webp";
 import plaidjacket from "../assets/plaidjacket.webp";
+
+
+
+const endpoint =
+  "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto";
+
+const options = {
+  headers: {
+    apikey: "sb_publishable_cUMJsCe6DpyMi4ezeOFtcg_VUrw2EXt",
+  },
+};
+
+const data = await fetch(endpoint, options).then((res) => res.json());
+
+console.log(data);
 ---
+
 
 <Layout>
   <Navigation />
@@ -146,11 +163,11 @@ import plaidjacket from "../assets/plaidjacket.webp";
 
     <div class="vision-line"></div>
 
-    <div class="vision-grid">
-      <Pcard />
-      <Pcard />
-      <Pcard />
-    </div>
+   <div class="vision-grid">
+  {data.slice(0, 3).map((product) => (
+  <Pcard product={product} />
+))}
+</div>
   </section>
 
   <Features />
