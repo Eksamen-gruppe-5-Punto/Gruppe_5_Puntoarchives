@@ -1,12 +1,16 @@
 ---
-import Card from "./Pcard.astro";
+//@ts-nocheck
+import Pcard from "./Pcard.astro";
+
+const { products } = Astro.props;
 ---
 
 <section class="card-rack">
-  <Card />
-  <Card />
-  <Card />
+  {products.map((product) => (
+    <Pcard product={product} />
+  ))}
 </section>
+
 
 <style>
   .card-rack {
@@ -28,7 +32,6 @@ import Card from "./Pcard.astro";
     .card-rack {
       max-width: 1320px;
 
-      /* fjernet bund-margin */
       margin: 40px auto 0;
 
       padding: 0 32px 0;
@@ -47,20 +50,20 @@ import Card from "./Pcard.astro";
       width: 349px;
     }
 
-    .card-rack :global(.card:nth-child(2)) {
-      margin-top: 170px;
+.card-rack :global(.card:nth-child(2)) {
+      margin-top: 10px;
     }
 
-    .card-rack :global(.card:nth-child(3)) {
-      margin-top: 0;
-    }
+ .card-rack :global(.card:nth-child(3n + 1)) {
+  margin-top: 0;
+}
 
-    .card-rack :global(.card:nth-child(4)) {
-      margin-top: -40px;
-    }
+.card-rack :global(.card:nth-child(3n + 2)) {
+  margin-top: 170px;
+}
 
-    .card-rack :global(.card:nth-child(5)) {
-      margin-top: 40px;
-    }
+.card-rack :global(.card:nth-child(3n + 3)) {
+  margin-top: 0;
+}
   }
 </style>

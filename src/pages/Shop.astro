@@ -1,10 +1,25 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Filterbox from "../components/Filterbox.astro";
 import Cardrack from "../components/Cardrack.astro";
 import Footer from "../components/Footer.astro";
 import Features from "../components/Features.astro";
+import Pcard from "../components/Pcard.astro";
+
+const endpoint =
+  "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto";
+
+const options = {
+  headers: {
+    apikey: "sb_publishable_cUMJsCe6DpyMi4ezeOFtcg_VUrw2EXt",
+  },
+};
+
+const data = await fetch(endpoint, options).then((res) => res.json());
+
+console.log(data);
 ---
 
 <Layout>
@@ -27,11 +42,9 @@ import Features from "../components/Features.astro";
     </h4>
   </main>
 
-  <main class="shop-racks">
-    <Cardrack />
-    <Cardrack />
-    <Cardrack />
-  </main>
+<main class="shop-racks">
+  <Cardrack products={data} />
+</main>
 
     <Features />
   <Footer />
@@ -81,6 +94,7 @@ import Features from "../components/Features.astro";
     }
   });
 </script>
+
 <style>
   .shop-page {
     padding: 32px 20px 40px;
@@ -149,4 +163,6 @@ import Features from "../components/Features.astro";
     margin-top: -20px;
     gap: 0;
   }
+}
+  
 </style>
