@@ -23,7 +23,7 @@ import plaidjacket from "../assets/plaidjacket.webp";
 
 
 const endpoint =
-  "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto";
+  "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto?select=*&order=id.asc";
 
 const options = {
   headers: {
@@ -34,6 +34,7 @@ const options = {
 const data = await fetch(endpoint, options).then((res) => res.json());
 
 console.log(data);
+
 ---
 
 

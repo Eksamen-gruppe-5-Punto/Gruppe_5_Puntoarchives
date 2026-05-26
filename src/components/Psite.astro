@@ -1,6 +1,19 @@
 ---
 import Button from "./Button.astro";
 import "../styles/global.css";
+
+const { product } = Astro.props;
+
+const images = [
+  product.details_img_1,
+  product.details_img_2,
+  product.details_img_3,
+].filter(Boolean);
+
+const name = product.name?.trim();
+const brand = product.brand?.trim();
+const description = product.description || "No description available.";
+const mainImage = images[0] || product.image;
 ---
 
 <section class="product-section">
@@ -12,22 +25,22 @@ import "../styles/global.css";
     <h1 class="headline">BLAZER</h1>
 
     <div class="image-frame image-frame-main">
-      <img src="https://placehold.co/539x813" alt="Beige Blazer" />
+      <img src={mainImage} alt={name} />
     </div>
 
     <div class="product-info">
-      <p class="product-brand">KENZO</p>
-      <h2 class="product-title">Beige Blazer</h2>
-      <p class="product-size">Størrelse 52 (L)</p>
-      <p class="product-price">649 DKK</p>
+      <p class="product-brand">{brand}</p>
+      <h2 class="product-title">{name}</h2>
+      <p class="product-size">Størrelse {product.size}</p>
+      <p class="product-price">{product.price} DKK</p>
 
       <section
         class="button-test add-to-cart"
-        data-brand="KENZO"
-        data-name="Beige Blazer"
-        data-price="649"
-        data-size="52 (L)"
-        data-image="https://placehold.co/539x813"
+        data-brand={brand}
+        data-name={name}
+        data-price={product.price}
+        data-size={product.size}
+        data-image={mainImage}
       >
         <Button
           text="ADD TO BAG"
@@ -38,23 +51,18 @@ import "../styles/global.css";
     </div>
 
     <div class="description">
-      <span class="dropcap">L</span>
-      <p>
-        orem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore Excepteur sint occaecat cupidatat
-        non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      </p>
+      <span class="dropcap">{description.charAt(0)}</span>
+      <p>{description.slice(1)}</p>
     </div>
 
     <div class="image-frame image-frame-bottom">
-      <img src="https://placehold.co/539x813" alt="Beige Blazer" />
+      <img src={images[1] || mainImage} alt={name} />
     </div>
 
     <img
       class="image-small"
-      src="https://placehold.co/290x437"
-      alt="Beige Blazer detail"
+      src={images[2] || mainImage}
+      alt={`${name} detail`}
     />
 
     <div class="page-number">09</div>
@@ -228,7 +236,7 @@ import "../styles/global.css";
       display: block;
       position: absolute;
       left: 610px;
-      top: 470px;
+      top: 510px;
       width: 430px;
       font-family: "Merriweather Sans", sans-serif;
       font-size: 14px;

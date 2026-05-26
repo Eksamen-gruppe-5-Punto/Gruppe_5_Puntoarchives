@@ -6,7 +6,7 @@ const { product } = Astro.props;
 
 <section class="card">
 
-<a href="/Product" class="card-link">
+<a href={`/product/${product.id}`} class="card-link">
 
     <img
       src={product.image}
