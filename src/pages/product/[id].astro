@@ -1,0 +1,54 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import Psite from "../../components/Psite.astro";
+
+const endpoint = "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto";
+
+const options = {
+  headers: {
+    apikey: "sb_publishable_cUMJsCe6DpyMi4ezeOFtcg_VUrw2EXt",
+  },
+};
+
+export async function getStaticPaths() {
+  const products = await fetch(
+    "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto?select=id&order=id.asc",
+    {
+      headers: {
+        apikey: "sb_publishable_cUMJsCe6DpyMi4ezeOFtcg_VUrw2EXt",
+      },
+    }
+  ).then((res) => res.json());
+
+  return products.map((product) => ({
+    params: {
+      id: String(product.id),
+    },
+  }));
+}
+
+const { id } = Astro.params;
+
+const product = await fetch(`${endpoint}?select=*&id=eq.${id}`, options)
+  .then((res) => res.json())
+  .then((data) => data[0]);
+---
+
+<Layout>
+  <Navigation />
+
+  <main class="product-page">
+    {product ? <Psite product={product} /> : <p>Produktet blev ikke fundet.</p>}
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .product-page {
+    padding-top: 0;
+  }
+</style>
