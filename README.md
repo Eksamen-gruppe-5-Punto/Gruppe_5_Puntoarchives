@@ -41,15 +41,19 @@ project/
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── pages/
+│   │   ├── product/
+│   │   │   └── [id].astro
 │   │   ├── Aboutlookbook.astro
 │   │   ├── Event.astro
 │   │   ├── index.astro
-│   │   ├── Product.astro
 │   │   ├── Profile.astro
 │   │   └── Shop.astro
 │   └── styles/
 │       └── global.css
-└── .gitignore
+├── .gitignore
+├── astro.config.mjs
+├── package-lock.json
+└── package.json
 ```
 
 ### Filbeskrivelser

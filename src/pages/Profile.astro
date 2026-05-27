@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
 ---
 
 <Layout>
@@ -50,15 +49,15 @@ import Button from '../components/Button.astro';
 <style>
 
 .input-group input{
-  flex:1;
-
-  border:none;
-  outline:none;
-  background:transparent;
-
-  padding:12px 0;
-
-  font-size:13px;
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Merriweather Sans", sans-serif;
+  outline: none;
+  background: transparent;
 }
 
 .input-group input::placeholder{
@@ -100,27 +99,12 @@ import Button from '../components/Button.astro';
   color: #000000;
 }
 
-/* Input-feltet med den tynde bundlinje */
 .input-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 }
 
-.input-group input {
-  border: none;
-  border-bottom: 1px solid #cccccc;
-  padding: 8px 0;
-
-  font-size: 14px;
-  font-weight: 300;
-  font-family: "merriweather sans", sans-serif;
-
-  outline: none;
-  background: transparent;
-
-
-}
 
 .input-group input:focus {
   border-bottom: 1px solid #000000;
