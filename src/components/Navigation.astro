@@ -23,7 +23,7 @@ import kaareogida from "../assets/kaareogida.webp";
       <div class="dropdown-left" aria-label="Main menu">
 
         <a href="/" role="menuitem" tabindex="-1">
-          HOME <span class="arrow"> 〉 </span>
+          HOME <span class="arrow">  </span>
         </a>
 
       <a
@@ -42,11 +42,11 @@ import kaareogida from "../assets/kaareogida.webp";
         </div>
 
         <a href="/Aboutlookbook" role="menuitem" tabindex="-1">
-          ABOUT US & LOOKBOOK <span class="arrow"> 〉 </span>
+          ABOUT US & LOOKBOOK <span class="arrow">  </span>
         </a>
 
         <a href="/Event" role="menuitem" tabindex="-1">
-          EVENTS <span class="arrow"> 〉 </span>
+          EVENTS <span class="arrow">  </span>
         </a>
 
       </div>
@@ -586,8 +586,6 @@ import kaareogida from "../assets/kaareogida.webp";
     left: 0;
     right: 0;
     bottom: 0;
-
-    /* start below the header so the header stays visible */
     top: var(--header-height);
 
     background: rgba(0, 0, 0, 0.45);
@@ -675,6 +673,7 @@ import kaareogida from "../assets/kaareogida.webp";
 </script>
 
 <!-- SCRIPT TIL ÅBEN/LUK KURV -->
+
 <script is:inline>
   const openCart = document.querySelector("#openCart");
   const cartBox = document.querySelector("#cartBox");
