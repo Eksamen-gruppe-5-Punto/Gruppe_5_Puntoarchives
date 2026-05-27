@@ -9,7 +9,6 @@ import eventVideo from "../assets/0521.webm";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
-import "../styles/global.css";
 
 const events = [
   {
@@ -49,9 +48,9 @@ An outdoor evening with food, fashion, music and creative conversations bringing
       <div>
         <h1>PUNTO EVENTS</h1>
 
-        <p class="intro-text">
+        <h4 class="intro-text">
           Get inspired by <br /> timeless tailoring.
-        </p>
+        </h4>
 
         <video class="hero-video" autoplay muted loop playsinline>
           <source src={eventVideo} type="video/webm" />
@@ -239,6 +238,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
       line-height: 1.2;
       max-width: 140px;
       margin-bottom: 48px;
+      font-weight: 100;
     }
 
     .hero-video {

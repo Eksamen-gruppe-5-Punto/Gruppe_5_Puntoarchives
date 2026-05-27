@@ -5,8 +5,6 @@ import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Features from "../components/Features.astro";
 import Pcard from "../components/Pcard.astro";
-import "../styles/global.css";
-
 import instagram from "../assets/instagram.webp";
 import tiktok from "../assets/tiktok.webp";
 import facebook from "../assets/facebooj.webp";
@@ -31,7 +29,6 @@ const options = {
 
 const data = await fetch(endpoint, options).then((res) => res.json());
 
-console.log(data);
 ---
 
 <Layout>
@@ -562,9 +559,10 @@ console.log(data);
     }
 
     .universe p {
-      margin-bottom: 22px;
-      width: 80%;
-      font-weight: 100;
+       margin-bottom: 22px;
+  max-width: 58ch;
+  width: 100%;
+  font-weight: 100;
     }
 
     .universe-images {
