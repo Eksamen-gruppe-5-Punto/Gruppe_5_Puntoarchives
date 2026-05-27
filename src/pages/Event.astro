@@ -1,13 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-import eventImage from '../assets/111.webp';
-import eventImage2 from '../assets/event1.webp';
-import eventImage3 from '../assets/event3.webp';
-import eventVideo from '../assets/0521.webm';
+import eventImage from "../assets/111.webp";
+import eventImage2 from "../assets/event1.webp";
+import eventImage3 from "../assets/event3.webp";
+import eventVideo from "../assets/0521.webm";
 
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 
@@ -18,7 +18,7 @@ const events = [
     time: "19:00 - 00:00",
     info: `Sankt Hans Gade 2, 2200, kbh N
 Release party
-Join us for an evening celebrating friends, music and the newest EP release with drinks, live performances and community atmosphere`
+Join us for an evening celebrating friends, music and the newest EP release with drinks, live performances and community atmosphere`,
   },
 
   {
@@ -27,7 +27,7 @@ Join us for an evening celebrating friends, music and the newest EP release with
     time: "20:00 - 02:00",
     info: `Studiestræde 44, København
 DJ night
-Live DJ sets and cocktails all night`
+Live DJ sets and cocktails all night`,
   },
 
   {
@@ -36,8 +36,8 @@ Live DJ sets and cocktails all night`
     time: "18:00 - 23:00",
     info: `Refshaleøen, København
 Summer gathering
-An outdoor evening with food, fashion, music and creative conversations bringing together community and culture by the waterfront`
-  }
+An outdoor evening with food, fashion, music and creative conversations bringing together community and culture by the waterfront`,
+  },
 ];
 ---
 
@@ -45,17 +45,16 @@ An outdoor evening with food, fashion, music and creative conversations bringing
   <Navigation />
 
   <section class="event-page">
-
     <section class="hero-section">
       <div>
         <h1>PUNTO EVENTS</h1>
 
         <p class="intro-text">
-          Get inspired by <br> timeless tailoring.
+          Get inspired by <br /> timeless tailoring.
         </p>
 
         <video class="hero-video" autoplay muted loop playsinline>
-        <source src={eventVideo} type="video/webm" />
+          <source src={eventVideo} type="video/webm" />
         </video>
       </div>
 
@@ -65,15 +64,14 @@ An outdoor evening with food, fashion, music and creative conversations bringing
         <div class="line"></div>
 
         <p>
-          <span>PUNTO EVENTS</span> is an extension of the brand’s universe —
-          bringing together fashion, music, art, and community through carefully
-          curated experiences. From intimate pop-ups and creative showcases to
-          late-night gatherings and collaborative events, each occasion is built
-          around atmosphere, connection, and cultural expression. Rooted in the
-          same timeless and understated identity as PUNTO ARCHIVES, the events
-          create spaces where people can discover new inspirations, meet
-          like-minded individuals, and experience the brand beyond the clothing
-          itself.
+          <span>PUNTO EVENTS</span> is an extension of the brand’s universe — bringing
+          together fashion, music, art, and community through carefully curated experiences.
+          From intimate pop-ups and creative showcases to late-night gatherings and
+          collaborative events, each occasion is built around atmosphere, connection,
+          and cultural expression. Rooted in the same timeless and understated identity
+          as PUNTO ARCHIVES, the events create spaces where people can discover new
+          inspirations, meet like-minded individuals, and experience the brand beyond
+          the clothing itself.
         </p>
       </section>
     </section>
@@ -81,24 +79,25 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     <section class="upcoming">
       <h2>UPCOMING <br /> EVENTS</h2>
 
-      {events.map((event) => (
-        <article class="event-card">
-          <div class="line"></div>
+      {
+        events.map((event) => (
+          <article class="event-card">
+            <div class="line" />
 
-          <img src={event.image.src} alt="Event image" />
+            <img src={event.image.src} alt="Event image" />
 
-          <div class="event-meta">
-            <h3>{event.date}</h3>
-            <p class="time">{event.time}</p>
-          </div>
+            <div class="event-meta">
+              <h3>{event.date}</h3>
+              <p class="time">{event.time}</p>
+            </div>
 
-          <p class="event-info">{event.info}</p>
-        </article>
-      ))}
+            <p class="event-info">{event.info}</p>
+          </article>
+        ))
+      }
 
       <div class="line"></div>
     </section>
-
   </section>
 
   <Footer />
@@ -109,18 +108,18 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     box-sizing: border-box;
   }
 
- .event-page {
-  padding: 32px 20px 0;
-}
+  .event-page {
+    padding: 32px 20px 0;
+  }
 
- h1 {
-  font-weight: 400;
-  letter-spacing: 0.88px;
-  margin-bottom: 24px;
-}
+  h1 {
+    font-weight: 400;
+    letter-spacing: 0.88px;
+    margin-bottom: 24px;
+  }
   .intro-text {
-  display: none;
-}
+    display: none;
+  }
 
   .hero-video {
     width: 100%;
@@ -141,7 +140,7 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     margin-bottom: 12px;
   }
 
-   h2 {
+  h2 {
     margin-top: 40px;
     margin-bottom: 40px;
   }
@@ -202,96 +201,109 @@ An outdoor evening with food, fashion, music and creative conversations bringing
     line-height: 22px;
     white-space: pre-line;
   }
-
+  @media (min-width: 768px) {
+    .hero-video {
+      width: 715px;
+      max-width: none;
+      height: 500px;
+      margin-bottom: 0;
+      width: 730px;
+    }
+    .discover-section {
+      max-width: 500px;
+    }
+    .line {
+      min-width: 730px;
+    }
+  }
   @media (min-width: 1280px) {
- .event-page {
-  width: calc(100% - 114px);
-  margin-left: 57px;
-  padding: 55px 0 120px;
-}
+    .event-page {
+      width: calc(100% - 114px);
+      margin-left: 57px;
+      padding: 55px 0 120px;
+    }
 
- .hero-section {
-  display: grid;
-  grid-template-columns: 820px 360px;
-  gap: 90px;
-  align-items: start;
-}
+    .hero-section {
+      display: grid;
+      grid-template-columns: 820px 360px;
+      gap: 90px;
+      align-items: start;
+    }
 
-  h2 {
-    margin-bottom: 12px;
-  }
+    h2 {
+      margin-bottom: 12px;
+    }
     .intro-text {
-    display: block;
-    font-size: 16px;
-    line-height: 1.2;
-    max-width: 140px;
-    margin-bottom: 48px;
-  }
+      display: block;
+      font-size: 16px;
+      line-height: 1.2;
+      max-width: 140px;
+      margin-bottom: 48px;
+    }
 
-  .hero-video {
-    width: 715px;
-    max-width: none;
-    height: 500px;
-    margin-bottom: 0;
-     width: 850px;
-  }
+    .hero-video {
+      width: 715px;
+      max-width: none;
+      height: 500px;
+      margin-bottom: 0;
+      width: 850px;
+    }
 
-  .discover-section {
-    margin-top: 112px;
-    margin-bottom: 0;
-    margin-top: 50%;
-  }
+    .discover-section {
+      margin-top: 112px;
+      margin-bottom: 0;
+      margin-top: 50%;
+    }
 
-  .discover-section h2 {
-    font-size: 30px;
-  }
+    .discover-section h2 {
+      font-size: 30px;
+    }
 
-  .upcoming {
-    margin-top: 90px;
-  }
+    .upcoming {
+      margin-top: 90px;
+    }
 
-  .upcoming h2 {
-    font-size: 64px;
-    margin-bottom: 24px;
-  }
+    .upcoming h2 {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
 
-  .upcoming h2 br {
-    display: none;
-  }
+    .upcoming h2 br {
+      display: none;
+    }
 
-  .event-card {
-    display: grid;
-    grid-template-columns: 160px 1fr 270px;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 0;
-  }
+    .event-card {
+      display: grid;
+      grid-template-columns: 160px 1fr 270px;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 0;
+    }
 
-  .event-card .line {
-    grid-column: 1 / -1;
-    margin-bottom: 24px;
-  }
+    .event-card .line {
+      grid-column: 1 / -1;
+      margin-bottom: 24px;
+    }
 
-  .event-card img {
-    grid-column: 3;
-    grid-row: 2;
-    width: 270px;
-    height: 176px;
-    margin-bottom: 0;
-  }
+    .event-card img {
+      grid-column: 3;
+      grid-row: 2;
+      width: 270px;
+      height: 176px;
+      margin-bottom: 0;
+    }
 
-  .event-meta {
-    grid-column: 1;
-    grid-row: 2;
-  }
+    .event-meta {
+      grid-column: 1;
+      grid-row: 2;
+    }
 
-  .event-info {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 14px;
-    line-height: 25px;
-    justify-content: center;
-    
+    .event-info {
+      grid-column: 2;
+      grid-row: 2;
+      font-size: 14px;
+      line-height: 25px;
+      justify-content: center;
+    }
   }
-}
 </style>

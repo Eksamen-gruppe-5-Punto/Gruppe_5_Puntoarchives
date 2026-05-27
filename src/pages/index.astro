@@ -20,8 +20,6 @@ import personsuit from "../assets/personsuit.webp";
 import magazine from "../assets/magazine.webp";
 import plaidjacket from "../assets/plaidjacket.webp";
 
-
-
 const endpoint =
   "https://mpbvcoonbwvxvdnpsfil.supabase.co/rest/v1/punto?select=*&order=id.asc";
 
@@ -34,9 +32,7 @@ const options = {
 const data = await fetch(endpoint, options).then((res) => res.json());
 
 console.log(data);
-
 ---
-
 
 <Layout>
   <Navigation />
@@ -101,8 +97,8 @@ console.log(data);
       craftsmanship, and ability to exist effortlessly between past and present.
       <br /><br />
       To experience the full world of Punto Archives, explore our social platforms
-      where the collection comes to life through editorials, styling videos,
-      behind-the-scenes moments, and daily archival finds.
+      where the collection comes to life through editorials, styling videos, behind-the-scenes
+      moments, and daily archival finds.
       <br />
       Stay connected with the evolving universe of Punto Archives.
       <br /><br />
@@ -127,11 +123,7 @@ console.log(data);
     </div>
 
     <div class="universe-images">
-      <img
-        src={personsuit.src}
-        alt="a suit"
-        class="universe-img item-person"
-      />
+      <img src={personsuit.src} alt="a suit" class="universe-img item-person" />
 
       <img
         src={magazine.src}
@@ -164,11 +156,9 @@ console.log(data);
 
     <div class="vision-line"></div>
 
-   <div class="vision-grid">
-  {data.slice(0, 3).map((product) => (
-  <Pcard product={product} />
-))}
-</div>
+    <div class="vision-grid">
+      {data.slice(0, 3).map((product) => <Pcard product={product} />)}
+    </div>
   </section>
 
   <Features />
@@ -367,7 +357,97 @@ console.log(data);
     gap: 56px;
     align-items: center;
   }
+  /* IPAD */
+  @media (min-width: 768px) {
+    .hero {
+      padding: 32px 20px 0;
+    }
 
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      padding: 55px 0 0;
+      margin-left: 57px;
+      width: calc(100% - 114px);
+    }
+
+    .hero h1,
+    .hero h2 {
+      line-height: 0.95;
+      letter-spacing: 1.28px;
+    }
+
+    .subtitle-left,
+    .hero-right {
+      display: block;
+    }
+
+    .hero-right {
+      text-align: right;
+    }
+
+    .hero-right h4 {
+      text-align: right;
+      margin-top: 15px;
+      font-weight: 100;
+    }
+
+    .gallery {
+      position: relative;
+      height: 260px;
+      margin: 20px auto 0;
+      padding: 0;
+      max-width: 1320px;
+      width: calc(100% - 114px);
+      box-sizing: border-box;
+    }
+
+    .item {
+      position: absolute;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+
+    .item-1 {
+      left: 0;
+      top: 0;
+    }
+
+    .item-1 .image-frame {
+      width: 170px;
+      height: 220px;
+    }
+
+    .item-2 {
+      left: 185px;
+      top: 40px;
+    }
+
+    .item-2 .image-frame {
+      width: 175px;
+      height: 160px;
+    }
+
+    .item-3 {
+      left: 375px;
+      top: 20px;
+    }
+
+    .item-3 .image-frame {
+      width: 165px;
+      height: 200px;
+    }
+
+    .item-4 {
+      left: 555px;
+      top: 60px;
+    }
+
+    .item-4 .image-frame {
+      width: 140px;
+      height: 160px;
+    }
+  }
   /* DESKTOP */
   @media (min-width: 1280px) {
     .hero {
