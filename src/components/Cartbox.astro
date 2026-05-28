@@ -4,7 +4,7 @@ import Button from "./Button.astro";
 
 <aside class="cart-box" id="cartBox">
   <div class="cart-header">
-    <h2 id="cartTitle">YOUR CART IS EMPTY (0)</h2>
+    <h2 id="cartTitle">YOUR BAG IS EMPTY (0)</h2>
     <button class="close-cart-btn" id="closeCart">×</button>
   </div>
 
@@ -54,13 +54,13 @@ import Button from "./Button.astro";
     cartItemsContainer.innerHTML = "";
 
     if (cartItems.length === 0) {
-      cartTitle.textContent = "YOUR CART IS EMPTY (0)";
+      cartTitle.textContent = "YOUR BAG IS EMPTY (0)";
       cartSummary.style.display = "none";
       cartTotalBox.style.display = "none";
       return;
     }
 
-    cartTitle.textContent = `CART (${cartItems.length})`;
+    cartTitle.textContent = `BAG (${cartItems.length})`;
     cartSummary.style.display = "block";
     cartTotalBox.style.display = "flex";
 
